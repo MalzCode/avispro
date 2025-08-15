@@ -12,7 +12,6 @@ export default function AvisProSimple() {
         background: 'linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)',
         fontFamily: 'system-ui, -apple-system, sans-serif'
       }}>
-        {/* Header */}
         <header style={{
           backgroundColor: 'white',
           boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
@@ -49,7 +48,6 @@ export default function AvisProSimple() {
           </div>
         </header>
 
-        {/* Hero Section */}
         <div style={{
           maxWidth: '1200px',
           margin: '0 auto',
@@ -63,7 +61,7 @@ export default function AvisProSimple() {
             marginBottom: '1.5rem',
             lineHeight: '1.2'
           }}>
-            Votre page d'avis clients<br/>
+            Votre page d&apos;avis clients<br/>
             <span style={{ color: '#4f46e5' }}>en 2 minutes</span>
           </h1>
           
@@ -96,7 +94,6 @@ export default function AvisProSimple() {
             Essayer Gratuitement
           </button>
 
-          {/* Comment ça marche */}
           <div style={{ marginTop: '4rem' }}>
             <h2 style={{
               fontSize: '2rem',
@@ -189,7 +186,6 @@ export default function AvisProSimple() {
               </div>
             </div>
 
-            {/* Demo Preview */}
             <div style={{
               backgroundColor: 'white',
               borderRadius: '1rem',
@@ -200,7 +196,7 @@ export default function AvisProSimple() {
             }}>
               <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
                 <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-                  Votre page d'avis en action
+                  Votre page d&apos;avis en action
                 </h3>
                 <p style={{ color: '#6b7280' }}>Voici à quoi ressemble une page AvisPro</p>
               </div>
@@ -241,382 +237,10 @@ export default function AvisProSimple() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
                       <span style={{ fontWeight: '600', fontSize: '0.75rem' }}>Marie D.</span>
                       <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
-                  <span style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>5.0</span>
-                  <span style={{ color: '#6b7280' }}>(2 avis)</span>
-                </div>
-                <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
-                  ✅ Devis gratuit<br/>
-                  ✅ Assurance décennale
-                </div>
-              </div>
-              <div style={{ display: 'flex', gap: '1rem' }}>
-                <button style={{
-                  backgroundColor: '#d97706',
-                  color: 'white',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '0.5rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontWeight: '600'
-                }}>
-                  Demander un devis
-                </button>
-                <button 
-                  onClick={() => alert('Formulaire d\'avis en cours...')}
-                  style={{
-                    border: '2px solid #d97706',
-                    color: '#d97706',
-                    backgroundColor: 'transparent',
-                    padding: '0.75rem 1.5rem',
-                    borderRadius: '0.5rem',
-                    cursor: 'pointer',
-                    fontWeight: '600'
-                  }}
-                >
-                  Laisser un avis
-                </button>
-              </div>
-            </div>
-            <div style={{
-              backgroundColor: '#e5e7eb',
-              borderRadius: '1rem',
-              height: '24rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
-            }}>
-              <span style={{ color: '#6b7280' }}>Photo chantier principal</span>
-            </div>
-              </div>
-            </section>
-			
-            {/* Services */}
-            <section style={{ padding: '4rem 1rem', backgroundColor: 'white' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <h2 style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginBottom: '3rem'
-            }}>
-              Mes services
-            </h2>
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '2rem'
-            }}>
-              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#fef3c7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1rem auto'
-                }}>
-                  <span style={{ fontSize: '1.5rem' }}>🏗️</span>
-                </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Construction</h3>
-                <p style={{ color: '#6b7280' }}>Maisons, extensions, garages. Du gros œuvre aux finitions.</p>
-              </div>
-              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#fef3c7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1rem auto'
-                }}>
-                  <span style={{ fontSize: '1.5rem' }}>🔨</span>
-                </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Rénovation</h3>
-                <p style={{ color: '#6b7280' }}>Réfection complète, mise aux normes, modernisation.</p>
-              </div>
-              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
-                <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#fef3c7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1rem auto'
-                }}>
-                  <span style={{ fontSize: '1.5rem' }}>🌿</span>
-                </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Aménagement</h3>
-                <p style={{ color: '#6b7280' }}>Terrasses, allées, murets, aménagement paysager.</p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Avis Section */}
-        <section style={{ padding: '4rem 1rem', backgroundColor: '#f9fafb' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Ce que disent mes clients</h2>
-              <p style={{
-                fontSize: '1.125rem',
-                color: '#6b7280',
-                marginBottom: '1.5rem'
-              }}>
-                La satisfaction client est ma priorité. Découvrez les retours de mes derniers chantiers.
-              </p>
-              <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1rem',
-                marginBottom: '2rem'
-              }}>
-                <div style={{
-                  backgroundColor: 'white',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '9999px',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-                }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
-                    <span style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>5.0</span>
-                    <span style={{ color: '#6b7280' }}>/ 5</span>
-                  </div>
-                </div>
-                <div style={{
-                  backgroundColor: 'white',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '9999px',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
-                }}>
-                  <span style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>2</span>
-                  <span style={{ color: '#6b7280', marginLeft: '0.25rem' }}>avis clients</span>
-                </div>
-              </div>
-            </div>
-
-            <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-              gap: '1.5rem',
-              marginBottom: '3rem'
-            }}>
-              <div style={{
-                backgroundColor: 'white',
-                padding: '1.5rem',
-                borderRadius: '0.75rem',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                border: '1px solid #e5e7eb'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                  <div style={{
-                    width: '3.5rem',
-                    height: '3.5rem',
-                    background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>M</span>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      marginBottom: '0.75rem'
-                    }}>
-                      <h3 style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>Marie Dubois</h3>
-                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
                     </div>
-                    <p style={{
-                      color: '#374151',
-                      lineHeight: '1.6',
-                      marginBottom: '0.75rem',
-                      fontStyle: 'italic'
-                    }}>
-                      "Travail impeccable ! Jean-Paul a refait ma terrasse en 3 jours. Très professionnel et soigneux."
-                    </p>
-                    <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
-                      Chantier réalisé le 2025-08-10
+                    <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
+                      &quot;Excellent travail, très professionnel !&quot;
                     </div>
-                  </div>
-                </div>
-              </div>
-
-              <div style={{
-                backgroundColor: 'white',
-                padding: '1.5rem',
-                borderRadius: '0.75rem',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                border: '1px solid #e5e7eb'
-              }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
-                  <div style={{
-                    width: '3.5rem',
-                    height: '3.5rem',
-                    background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
-                  }}>
-                    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>P</span>
-                  </div>
-                  <div style={{ flex: 1 }}>
-                    <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      marginBottom: '0.75rem'
-                    }}>
-                      <h3 style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>Philippe Martin</h3>
-                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <p style={{
-                      color: '#374151',
-                      lineHeight: '1.6',
-                      marginBottom: '0.75rem',
-                      fontStyle: 'italic'
-                    }}>
-                      "Excellent maçon, ponctuel et de bon conseil. Je recommande vivement !"
-                    </p>
-                    <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
-                      Chantier réalisé le 2025-08-05
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div style={{
-              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-              borderRadius: '1rem',
-              padding: '2rem',
-              textAlign: 'center',
-              color: 'white'
-            }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-                Vous avez travaillé avec moi ?
-              </h3>
-              <p style={{
-                fontSize: '1.125rem',
-                marginBottom: '1.5rem',
-                color: '#fef3c7'
-              }}>
-                Votre avis m'aide à améliorer mes services et guide mes futurs clients
-              </p>
-              <button 
-                onClick={() => alert('Formulaire d\'avis sera bientôt disponible !')}
-                style={{
-                  backgroundColor: 'white',
-                  color: '#d97706',
-                  padding: '1rem 2rem',
-                  borderRadius: '0.75rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '1.125rem',
-                  fontWeight: 'bold',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
-                }}
-              >
-                ⭐ Laisser un avis
-              </button>
-            </div>
-          </div>
-        </section>
-
-        {/* Footer */}
-        <footer style={{ backgroundColor: '#1f2937', color: 'white', padding: '2rem 1rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '1rem'
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                <div style={{
-                  width: '2.5rem',
-                  height: '2.5rem',
-                  backgroundColor: '#d97706',
-                  borderRadius: '0.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
-                }}>
-                  <span style={{ color: 'white', fontWeight: 'bold' }}>JP</span>
-                </div>
-                <div>
-                  <p style={{ fontWeight: 'bold' }}>Maçonnerie JP</p>
-                  <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>Jean-Paul Dubois - Artisan maçon</p>
-                </div>
-              </div>
-              <div style={{ textAlign: 'center', fontSize: '0.875rem', color: '#9ca3af' }}>
-                <p>© 2025 Maçonnerie JP - Tous droits réservés</p>
-                <p style={{ marginTop: '0.25rem' }}>
-                  Site créé avec{' '}
-                  <button 
-                    onClick={() => setCurrentView('landing')}
-                    style={{
-                      color: '#fbbf24',
-                      textDecoration: 'underline',
-                      border: 'none',
-                      background: 'none',
-                      cursor: 'pointer'
-                    }}
-                  >
-                    AvisPro
-                  </button>
-                </p>
-              </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                <button 
-                  onClick={() => alert('Dashboard admin en développement !')}
-                  style={{
-                    color: '#fbbf24',
-                    textDecoration: 'underline',
-                    border: 'none',
-                    background: 'none',
-                    cursor: 'pointer',
-                    fontSize: '0.875rem'
-                  }}
-                >
-                  🔧 Mode Admin
-                </button>
-                <button 
-                  onClick={() => alert('Test client : Formulaire bientôt disponible !')}
-                  style={{
-                    backgroundColor: '#f59e0b',
-                    color: 'white',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '0.875rem'
-                  }}
-                >
-                  👤 Tester comme client
-                </button>
-              </div>
-            </div>
-          </div>
-        </footer>
-      </div>
-    );
-  }
-
-  return null;
-}f24', fontSize: '0.75rem' }}>⭐⭐⭐⭐⭐</span>
-                    </div>
-                    <p style={{ fontSize: '0.75rem', color: '#374151' }}>"Travail impeccable ! Très professionnel."</p>
                   </div>
 
                   <div style={{
@@ -626,10 +250,12 @@ export default function AvisProSimple() {
                     boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
                   }}>
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                      <span style={{ fontWeight: '600', fontSize: '0.75rem' }}>Philippe M.</span>
-                      <span style={{ color: '#fbbf24', fontSize: '0.75rem' }}>⭐⭐⭐⭐⭐</span>
+                      <span style={{ fontWeight: '600', fontSize: '0.75rem' }}>Pierre L.</span>
+                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: '#374151' }}>"Ponctuel et de bon conseil. Je recommande !"</p>
+                    <div style={{ fontSize: '0.75rem', color: '#6b7280' }}>
+                      &quot;Travail impeccable et dans les délais&quot;
+                    </div>
                   </div>
                 </div>
 
@@ -652,7 +278,6 @@ export default function AvisProSimple() {
               </div>
             </div>
 
-            {/* Pricing */}
             <div style={{ marginTop: '4rem' }}>
               <h2 style={{
                 fontSize: '2rem',
@@ -670,7 +295,6 @@ export default function AvisProSimple() {
                 maxWidth: '1000px',
                 margin: '0 auto'
               }}>
-                {/* Plan Gratuit */}
                 <div style={{
                   backgroundColor: 'white',
                   padding: '1.5rem',
@@ -686,7 +310,7 @@ export default function AvisProSimple() {
                   <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem' }}>
                     <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
                       <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: '#10b981', borderRadius: '50%' }}></span>
-                      Jusqu'à 2 avis
+                      Jusqu&apos;à 2 avis
                     </li>
                     <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
                       <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: '#10b981', borderRadius: '50%' }}></span>
@@ -714,7 +338,6 @@ export default function AvisProSimple() {
                   </button>
                 </div>
 
-                {/* Plan Premium */}
                 <div style={{
                   backgroundColor: '#4f46e5',
                   color: 'white',
@@ -776,7 +399,6 @@ export default function AvisProSimple() {
                   </button>
                 </div>
 
-                {/* Plan Annuel */}
                 <div style={{
                   background: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
                   color: 'white',
@@ -871,8 +493,8 @@ export default function AvisProSimple() {
         }}>
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
             <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4f46e5', marginBottom: '0.5rem' }}>AvisPro</div>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Créez votre page d'avis</h2>
-            <p style={{ color: '#6b7280' }}>En 2 minutes, c'est parti !</p>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Créez votre page d&apos;avis</h2>
+            <p style={{ color: '#6b7280' }}>En 2 minutes, c&apos;est parti !</p>
           </div>
 
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -889,7 +511,8 @@ export default function AvisProSimple() {
                   border: '1px solid #d1d5db',
                   borderRadius: '0.5rem',
                   fontSize: '1rem',
-                  outline: 'none'
+                  outline: 'none',
+                  boxSizing: 'border-box'
                 }}
               />
             </div>
@@ -907,7 +530,8 @@ export default function AvisProSimple() {
                   border: '1px solid #d1d5db',
                   borderRadius: '0.5rem',
                   fontSize: '1rem',
-                  outline: 'none'
+                  outline: 'none',
+                  boxSizing: 'border-box'
                 }}
               />
             </div>
@@ -926,7 +550,8 @@ export default function AvisProSimple() {
                     border: '1px solid #d1d5db',
                     borderRadius: '0.5rem 0 0 0.5rem',
                     fontSize: '1rem',
-                    outline: 'none'
+                    outline: 'none',
+                    boxSizing: 'border-box'
                   }}
                 />
                 <span style={{
@@ -972,7 +597,7 @@ export default function AvisProSimple() {
                 fontSize: '0.875rem'
               }}
             >
-              ← Retour à l'accueil
+              ← Retour à l&apos;accueil
             </button>
           </div>
         </div>
@@ -987,7 +612,6 @@ export default function AvisProSimple() {
         backgroundColor: 'white',
         fontFamily: 'system-ui, -apple-system, sans-serif'
       }}>
-        {/* Header */}
         <header style={{
           backgroundColor: 'white',
           boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
@@ -1029,7 +653,6 @@ export default function AvisProSimple() {
           </div>
         </header>
 
-        {/* Hero Section */}
         <section style={{
           background: 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)',
           padding: '4rem 1rem'
@@ -1068,4 +691,375 @@ export default function AvisProSimple() {
                 marginBottom: '2rem'
               }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: '#fbb
+                  <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
+                  <span style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>5.0</span>
+                  <span style={{ color: '#6b7280' }}>(2 avis)</span>
+                </div>
+                <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                  ✅ Devis gratuit<br/>
+                  ✅ Assurance décennale
+                </div>
+              </div>
+              <div style={{ display: 'flex', gap: '1rem' }}>
+                <button style={{
+                  backgroundColor: '#d97706',
+                  color: 'white',
+                  padding: '0.75rem 1.5rem',
+                  borderRadius: '0.5rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontWeight: '600'
+                }}>
+                  Demander un devis
+                </button>
+                <button 
+                  onClick={() => alert('Formulaire d\'avis en cours...')}
+                  style={{
+                    border: '2px solid #d97706',
+                    color: '#d97706',
+                    backgroundColor: 'transparent',
+                    padding: '0.75rem 1.5rem',
+                    borderRadius: '0.5rem',
+                    cursor: 'pointer',
+                    fontWeight: '600'
+                  }}
+                >
+                  Laisser un avis
+                </button>
+              </div>
+            </div>
+            <div style={{
+              backgroundColor: '#e5e7eb',
+              borderRadius: '1rem',
+              height: '24rem',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              <span style={{ color: '#6b7280' }}>Photo chantier principal</span>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ padding: '4rem 1rem', backgroundColor: 'white' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <h2 style={{
+              fontSize: '2rem',
+              fontWeight: 'bold',
+              textAlign: 'center',
+              marginBottom: '3rem'
+            }}>
+              Mes services
+            </h2>
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+              gap: '2rem'
+            }}>
+              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
+                <div style={{
+                  width: '4rem',
+                  height: '4rem',
+                  backgroundColor: '#fef3c7',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem auto'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>🏗️</span>
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Construction</h3>
+                <p style={{ color: '#6b7280' }}>Maisons, extensions, garages. Du gros œuvre aux finitions.</p>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
+                <div style={{
+                  width: '4rem',
+                  height: '4rem',
+                  backgroundColor: '#fef3c7',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem auto'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>🔨</span>
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Rénovation</h3>
+                <p style={{ color: '#6b7280' }}>Réfection complète, mise aux normes, modernisation.</p>
+              </div>
+              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
+                <div style={{
+                  width: '4rem',
+                  height: '4rem',
+                  backgroundColor: '#fef3c7',
+                  borderRadius: '50%',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  margin: '0 auto 1rem auto'
+                }}>
+                  <span style={{ fontSize: '1.5rem' }}>🌿</span>
+                </div>
+                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Aménagement</h3>
+                <p style={{ color: '#6b7280' }}>Terrasses, allées, murets, aménagement paysager.</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section style={{ padding: '4rem 1rem', backgroundColor: '#f9fafb' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
+              <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Ce que disent mes clients</h2>
+              <p style={{
+                fontSize: '1.125rem',
+                color: '#6b7280',
+                marginBottom: '1.5rem'
+              }}>
+                La satisfaction client est ma priorité. Découvrez les retours de mes derniers chantiers.
+              </p>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'center',
+                gap: '1rem',
+                marginBottom: '2rem'
+              }}>
+                <div style={{
+                  backgroundColor: 'white',
+                  padding: '1rem 1.5rem',
+                  borderRadius: '9999px',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
+                    <span style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>5.0</span>
+                    <span style={{ color: '#6b7280' }}>/ 5</span>
+                  </div>
+                </div>
+                <div style={{
+                  backgroundColor: 'white',
+                  padding: '1rem 1.5rem',
+                  borderRadius: '9999px',
+                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                }}>
+                  <span style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>2</span>
+                  <span style={{ color: '#6b7280', marginLeft: '0.25rem' }}>avis clients</span>
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
+              gap: '1.5rem',
+              marginBottom: '3rem'
+            }}>
+              <div style={{
+                backgroundColor: 'white',
+                padding: '1.5rem',
+                borderRadius: '0.75rem',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                border: '1px solid #e5e7eb'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div style={{
+                    width: '3.5rem',
+                    height: '3.5rem',
+                    background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>M</span>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      marginBottom: '0.75rem'
+                    }}>
+                      <h3 style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>Marie Dubois</h3>
+                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p style={{
+                      color: '#374151',
+                      lineHeight: '1.6',
+                      marginBottom: '0.75rem',
+                      fontStyle: 'italic'
+                    }}>
+                      &quot;Travail impeccable ! Jean-Paul a refait ma terrasse en 3 jours. Très professionnel et soigneux.&quot;
+                    </p>
+                    <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                      Chantier réalisé le 2025-08-10
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div style={{
+                backgroundColor: 'white',
+                padding: '1.5rem',
+                borderRadius: '0.75rem',
+                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
+                border: '1px solid #e5e7eb'
+              }}>
+                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                  <div style={{
+                    width: '3.5rem',
+                    height: '3.5rem',
+                    background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
+                    borderRadius: '50%',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center'
+                  }}>
+                    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>P</span>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <div style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.75rem',
+                      marginBottom: '0.75rem'
+                    }}>
+                      <h3 style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>Philippe Martin</h3>
+                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
+                    </div>
+                    <p style={{
+                      color: '#374151',
+                      lineHeight: '1.6',
+                      marginBottom: '0.75rem',
+                      fontStyle: 'italic'
+                    }}>
+                      &quot;Excellent maçon, ponctuel et de bon conseil. Je recommande vivement !&quot;
+                    </p>
+                    <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                      Chantier réalisé le 2025-08-05
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div style={{
+              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
+              borderRadius: '1rem',
+              padding: '2rem',
+              textAlign: 'center',
+              color: 'white'
+            }}>
+              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                Vous avez travaillé avec moi ?
+              </h3>
+              <p style={{
+                fontSize: '1.125rem',
+                marginBottom: '1.5rem',
+                color: '#fef3c7'
+              }}>
+                Votre avis m&apos;aide à améliorer mes services et guide mes futurs clients
+              </p>
+              <button 
+                onClick={() => alert('Formulaire d\'avis sera bientôt disponible !')}
+                style={{
+                  backgroundColor: 'white',
+                  color: '#d97706',
+                  padding: '1rem 2rem',
+                  borderRadius: '0.75rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '1.125rem',
+                  fontWeight: 'bold',
+                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+                }}
+              >
+                ⭐ Laisser un avis
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <footer style={{ backgroundColor: '#1f2937', color: 'white', padding: '2rem 1rem' }}>
+          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+            <div style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              alignItems: 'center',
+              flexWrap: 'wrap',
+              gap: '1rem'
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{
+                  width: '2.5rem',
+                  height: '2.5rem',
+                  backgroundColor: '#d97706',
+                  borderRadius: '0.5rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}>
+                  <span style={{ color: 'white', fontWeight: 'bold' }}>JP</span>
+                </div>
+                <div>
+                  <p style={{ fontWeight: 'bold' }}>Maçonnerie JP</p>
+                  <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>Jean-Paul Dubois - Artisan maçon</p>
+                </div>
+              </div>
+              <div style={{ textAlign: 'center', fontSize: '0.875rem', color: '#9ca3af' }}>
+                <p>© 2025 Maçonnerie JP - Tous droits réservés</p>
+                <p style={{ marginTop: '0.25rem' }}>
+                  Site créé avec{' '}
+                  <button 
+                    onClick={() => setCurrentView('landing')}
+                    style={{
+                      color: '#fbbf24',
+                      textDecoration: 'underline',
+                      border: 'none',
+                      background: 'none',
+                      cursor: 'pointer'
+                    }}
+                  >
+                    AvisPro
+                  </button>
+                </p>
+              </div>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <button 
+                  onClick={() => alert('Dashboard admin en développement !')}
+                  style={{
+                    color: '#fbbf24',
+                    textDecoration: 'underline',
+                    border: 'none',
+                    background: 'none',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem'
+                  }}
+                >
+                  🔧 Mode Admin
+                </button>
+                <button 
+                  onClick={() => alert('Test client : Formulaire bientôt disponible !')}
+                  style={{
+                    backgroundColor: '#f59e0b',
+                    color: 'white',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '0.5rem',
+                    border: 'none',
+                    cursor: 'pointer',
+                    fontSize: '0.875rem'
+                  }}
+                >
+                  👤 Tester comme client
+                </button>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    );
+  }
+
+  return null;
+}
