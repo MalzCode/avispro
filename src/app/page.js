@@ -1,47 +1,47 @@
-'use client';
+'use client&apos;;
 
-import React, { useState } from 'react';
+import React, { useState } from &apos;react&apos;;
 
 export default function AvisProSimple() {
-  const [currentView, setCurrentView] = useState('landing');
+  const [currentView, setCurrentView] = useState(&apos;landing&apos;);
 
-  if (currentView === 'landing') {
+  if (currentView === &apos;landing&apos;) {
     return (
       <div style={{ 
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)',
-        fontFamily: 'system-ui, -apple-system, sans-serif'
+        minHeight: &apos;100vh&apos;,
+        background: &apos;linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)&apos;,
+        fontFamily: &apos;system-ui, -apple-system, sans-serif&apos;
       }}>
         {/* Header */}
         <header style={{
-          backgroundColor: 'white',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-          padding: '1rem'
+          backgroundColor: &apos;white&apos;,
+          boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;,
+          padding: &apos;1rem&apos;
         }}>
           <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center'
+            maxWidth: &apos;1200px&apos;,
+            margin: &apos;0 auto&apos;,
+            display: &apos;flex&apos;,
+            justifyContent: &apos;space-between&apos;,
+            alignItems: &apos;center&apos;
           }}>
             <div style={{
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-              color: '#4f46e5'
+              fontSize: &apos;1.5rem&apos;,
+              fontWeight: &apos;bold&apos;,
+              color: &apos;#4f46e5&apos;
             }}>
               AvisPro
             </div>
             <button 
-              onClick={() => setCurrentView('signup')}
+              onClick={() => setCurrentView(&apos;signup&apos;)}
               style={{
-                backgroundColor: '#4f46e5',
-                color: 'white',
-                padding: '0.5rem 1rem',
-                borderRadius: '0.5rem',
-                border: 'none',
-                cursor: 'pointer',
-                fontWeight: '600'
+                backgroundColor: &apos;#4f46e5&apos;,
+                color: &apos;white&apos;,
+                padding: &apos;0.5rem 1rem&apos;,
+                borderRadius: &apos;0.5rem&apos;,
+                border: &apos;none&apos;,
+                cursor: &apos;pointer&apos;,
+                fontWeight: &apos;600&apos;
               }}
             >
               Connexion
@@ -51,139 +51,139 @@ export default function AvisProSimple() {
 
         {/* Hero Section */}
         <div style={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          padding: '4rem 1rem',
-          textAlign: 'center'
+          maxWidth: &apos;1200px&apos;,
+          margin: &apos;0 auto&apos;,
+          padding: &apos;4rem 1rem&apos;,
+          textAlign: &apos;center&apos;
         }}>
           <h1 style={{
-            fontSize: '3rem',
-            fontWeight: 'bold',
-            color: '#1f2937',
-            marginBottom: '1.5rem',
-            lineHeight: '1.2'
+            fontSize: &apos;3rem&apos;,
+            fontWeight: &apos;bold&apos;,
+            color: &apos;#1f2937&apos;,
+            marginBottom: &apos;1.5rem&apos;,
+            lineHeight: &apos;1.2&apos;
           }}>
-            Votre page d'avis clients<br/>
-            <span style={{ color: '#4f46e5' }}>en 2 minutes</span>
+            Votre page d&apos;avis clients<br/>
+            <span style={{ color: &apos;#4f46e5&apos; }}>en 2 minutes</span>
           </h1>
           
           <p style={{
-            fontSize: '1.25rem',
-            color: '#6b7280',
-            marginBottom: '2rem',
-            maxWidth: '800px',
-            margin: '0 auto 2rem auto'
+            fontSize: &apos;1.25rem&apos;,
+            color: &apos;#6b7280&apos;,
+            marginBottom: &apos;2rem&apos;,
+            maxWidth: &apos;800px&apos;,
+            margin: &apos;0 auto 2rem auto&apos;
           }}>
             Créez votre page personnalisée pour collecter et afficher les avis de vos clients. 
             Parfait pour artisans, consultants, freelances et petites entreprises.
           </p>
 
           <button 
-            onClick={() => setCurrentView('signup')}
+            onClick={() => setCurrentView(&apos;signup&apos;)}
             style={{
-              backgroundColor: '#4f46e5',
-              color: 'white',
-              padding: '1rem 2rem',
-              borderRadius: '0.5rem',
-              border: 'none',
-              cursor: 'pointer',
-              fontSize: '1.125rem',
-              fontWeight: '600',
-              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-              marginBottom: '3rem'
+              backgroundColor: &apos;#4f46e5&apos;,
+              color: &apos;white&apos;,
+              padding: &apos;1rem 2rem&apos;,
+              borderRadius: &apos;0.5rem&apos;,
+              border: &apos;none&apos;,
+              cursor: &apos;pointer&apos;,
+              fontSize: &apos;1.125rem&apos;,
+              fontWeight: &apos;600&apos;,
+              boxShadow: &apos;0 4px 6px rgba(0,0,0,0.1)&apos;,
+              marginBottom: &apos;3rem&apos;
             }}
           >
             Essayer Gratuitement
           </button>
 
           {/* Comment ça marche */}
-          <div style={{ marginTop: '4rem' }}>
+          <div style={{ marginTop: &apos;4rem&apos; }}>
             <h2 style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginBottom: '3rem'
+              fontSize: &apos;2rem&apos;,
+              fontWeight: &apos;bold&apos;,
+              textAlign: &apos;center&apos;,
+              marginBottom: &apos;3rem&apos;
             }}>
               Comment ça marche ?
             </h2>
             
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-              gap: '2rem',
-              marginBottom: '4rem'
+              display: &apos;grid&apos;,
+              gridTemplateColumns: &apos;repeat(auto-fit, minmax(300px, 1fr))&apos;,
+              gap: &apos;2rem&apos;,
+              marginBottom: &apos;4rem&apos;
             }}>
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: &apos;center&apos; }}>
                 <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#dbeafe',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1.5rem auto'
+                  width: &apos;4rem&apos;,
+                  height: &apos;4rem&apos;,
+                  backgroundColor: &apos;#dbeafe&apos;,
+                  borderRadius: &apos;50%&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;,
+                  margin: &apos;0 auto 1.5rem auto&apos;
                 }}>
                   <span style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
-                    color: '#4f46e5'
+                    fontSize: &apos;1.5rem&apos;,
+                    fontWeight: &apos;bold&apos;,
+                    color: &apos;#4f46e5&apos;
                   }}>1</span>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;1rem&apos; }}>
                   Créez votre page
                 </h3>
-                <p style={{ color: '#6b7280' }}>
+                <p style={{ color: &apos;#6b7280&apos; }}>
                   Inscrivez-vous en 2 minutes et obtenez votre lien personnalisé
                 </p>
               </div>
 
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: &apos;center&apos; }}>
                 <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#dcfce7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1.5rem auto'
+                  width: &apos;4rem&apos;,
+                  height: &apos;4rem&apos;,
+                  backgroundColor: &apos;#dcfce7&apos;,
+                  borderRadius: &apos;50%&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;,
+                  margin: &apos;0 auto 1.5rem auto&apos;
                 }}>
                   <span style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
-                    color: '#16a34a'
+                    fontSize: &apos;1.5rem&apos;,
+                    fontWeight: &apos;bold&apos;,
+                    color: &apos;#16a34a&apos;
                   }}>2</span>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;1rem&apos; }}>
                   Partagez avec vos clients
                 </h3>
-                <p style={{ color: '#6b7280' }}>
+                <p style={{ color: &apos;#6b7280&apos; }}>
                   Envoyez votre lien par SMS, email ou donnez-le directement
                 </p>
               </div>
 
-              <div style={{ textAlign: 'center' }}>
+              <div style={{ textAlign: &apos;center&apos; }}>
                 <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#f3e8ff',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1.5rem auto'
+                  width: &apos;4rem&apos;,
+                  height: &apos;4rem&apos;,
+                  backgroundColor: &apos;#f3e8ff&apos;,
+                  borderRadius: &apos;50%&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;,
+                  margin: &apos;0 auto 1.5rem auto&apos;
                 }}>
                   <span style={{
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
-                    color: '#9333ea'
+                    fontSize: &apos;1.5rem&apos;,
+                    fontWeight: &apos;bold&apos;,
+                    color: &apos;#9333ea&apos;
                   }}>3</span>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+                <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;1rem&apos; }}>
                   Récoltez les avis
                 </h3>
-                <p style={{ color: '#6b7280' }}>
+                <p style={{ color: &apos;#6b7280&apos; }}>
                   Vos clients laissent facilement leur avis. Vous gérez tout depuis votre dashboard
                 </p>
               </div>
@@ -191,86 +191,86 @@ export default function AvisProSimple() {
 
             {/* Demo Preview */}
             <div style={{
-              backgroundColor: 'white',
-              borderRadius: '1rem',
-              boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-              padding: '2rem',
-              margin: '2rem auto',
-              maxWidth: '600px'
+              backgroundColor: &apos;white&apos;,
+              borderRadius: &apos;1rem&apos;,
+              boxShadow: &apos;0 10px 25px rgba(0,0,0,0.1)&apos;,
+              padding: &apos;2rem&apos;,
+              margin: &apos;2rem auto&apos;,
+              maxWidth: &apos;600px&apos;
             }}>
-              <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-                <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-                  Votre page d'avis en action
+              <div style={{ textAlign: &apos;center&apos;, marginBottom: &apos;2rem&apos; }}>
+                <h3 style={{ fontSize: &apos;1.5rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.5rem&apos; }}>
+                  Votre page d&apos;avis en action
                 </h3>
-                <p style={{ color: '#6b7280' }}>Voici à quoi ressemble une page AvisPro</p>
+                <p style={{ color: &apos;#6b7280&apos; }}>Voici à quoi ressemble une page AvisPro</p>
               </div>
 
               <div style={{
-                background: 'linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)',
-                padding: '1.5rem',
-                borderRadius: '0.75rem',
-                border: '2px dashed #4f46e5',
-                maxWidth: '400px',
-                margin: '0 auto'
+                background: &apos;linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)&apos;,
+                padding: &apos;1.5rem&apos;,
+                borderRadius: &apos;0.75rem&apos;,
+                border: &apos;2px dashed #4f46e5&apos;,
+                maxWidth: &apos;400px&apos;,
+                margin: &apos;0 auto&apos;
               }}>
-                <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
+                <div style={{ textAlign: &apos;center&apos;, marginBottom: &apos;1.5rem&apos; }}>
                   <div style={{
-                    width: '4rem',
-                    height: '4rem',
-                    backgroundColor: '#4f46e5',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    margin: '0 auto 1rem auto'
+                    width: &apos;4rem&apos;,
+                    height: &apos;4rem&apos;,
+                    backgroundColor: &apos;#4f46e5&apos;,
+                    borderRadius: &apos;50%&apos;,
+                    display: &apos;flex&apos;,
+                    alignItems: &apos;center&apos;,
+                    justifyContent: &apos;center&apos;,
+                    margin: &apos;0 auto 1rem auto&apos;
                   }}>
-                    <span style={{ color: 'white', fontSize: '1.5rem', fontWeight: 'bold' }}>JP</span>
+                    <span style={{ color: &apos;white&apos;, fontSize: &apos;1.5rem&apos;, fontWeight: &apos;bold&apos; }}>JP</span>
                   </div>
-                  <h4 style={{ fontSize: '1.125rem', fontWeight: 'bold' }}>Maçonnerie JP</h4>
-                  <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>⭐⭐⭐⭐⭐ 5.0 (12 avis)</p>
+                  <h4 style={{ fontSize: &apos;1.125rem&apos;, fontWeight: &apos;bold&apos; }}>Maçonnerie JP</h4>
+                  <p style={{ color: &apos;#6b7280&apos;, fontSize: &apos;0.875rem&apos; }}>⭐⭐⭐⭐⭐ 5.0 (12 avis)</p>
                 </div>
 
-                <div style={{ marginBottom: '1rem' }}>
+                <div style={{ marginBottom: &apos;1rem&apos; }}>
                   <div style={{
-                    backgroundColor: 'white',
-                    padding: '0.75rem',
-                    borderRadius: '0.5rem',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                    marginBottom: '0.75rem'
+                    backgroundColor: &apos;white&apos;,
+                    padding: &apos;0.75rem&apos;,
+                    borderRadius: &apos;0.5rem&apos;,
+                    boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;,
+                    marginBottom: &apos;0.75rem&apos;
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                      <span style={{ fontWeight: '600', fontSize: '0.75rem' }}>Marie D.</span>
-                      <span style={{ color: '#fbbf24', fontSize: '0.75rem' }}>⭐⭐⭐⭐⭐</span>
+                    <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.25rem&apos; }}>
+                      <span style={{ fontWeight: &apos;600&apos;, fontSize: &apos;0.75rem&apos; }}>Marie D.</span>
+                      <span style={{ color: &apos;#fbbf24&apos;, fontSize: &apos;0.75rem&apos; }}>⭐⭐⭐⭐⭐</span>
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: '#374151' }}>"Travail impeccable ! Très professionnel."</p>
+                    <p style={{ fontSize: &apos;0.75rem&apos;, color: &apos;#374151&apos; }}>&quot;Travail impeccable ! Très professionnel.&quot;</p>
                   </div>
 
                   <div style={{
-                    backgroundColor: 'white',
-                    padding: '0.75rem',
-                    borderRadius: '0.5rem',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                    backgroundColor: &apos;white&apos;,
+                    padding: &apos;0.75rem&apos;,
+                    borderRadius: &apos;0.5rem&apos;,
+                    boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;
                   }}>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
-                      <span style={{ fontWeight: '600', fontSize: '0.75rem' }}>Philippe M.</span>
-                      <span style={{ color: '#fbbf24', fontSize: '0.75rem' }}>⭐⭐⭐⭐⭐</span>
+                    <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.25rem&apos; }}>
+                      <span style={{ fontWeight: &apos;600&apos;, fontSize: &apos;0.75rem&apos; }}>Philippe M.</span>
+                      <span style={{ color: &apos;#fbbf24&apos;, fontSize: &apos;0.75rem&apos; }}>⭐⭐⭐⭐⭐</span>
                     </div>
-                    <p style={{ fontSize: '0.75rem', color: '#374151' }}>"Ponctuel et de bon conseil. Je recommande !"</p>
+                    <p style={{ fontSize: &apos;0.75rem&apos;, color: &apos;#374151&apos; }}>&quot;Ponctuel et de bon conseil. Je recommande !&quot;</p>
                   </div>
                 </div>
 
                 <button 
-                  onClick={() => setCurrentView('public-page')}
+                  onClick={() => setCurrentView(&apos;public-page&apos;)}
                   style={{
-                    width: '100%',
-                    backgroundColor: '#4f46e5',
-                    color: 'white',
-                    padding: '0.5rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '0.875rem',
-                    fontWeight: '600'
+                    width: &apos;100%&apos;,
+                    backgroundColor: &apos;#4f46e5&apos;,
+                    color: &apos;white&apos;,
+                    padding: &apos;0.5rem&apos;,
+                    borderRadius: &apos;0.5rem&apos;,
+                    border: &apos;none&apos;,
+                    cursor: &apos;pointer&apos;,
+                    fontSize: &apos;0.875rem&apos;,
+                    fontWeight: &apos;600&apos;
                   }}
                 >
                   ⭐ Voir la démo
@@ -279,61 +279,61 @@ export default function AvisProSimple() {
             </div>
 
             {/* Pricing */}
-            <div style={{ marginTop: '4rem' }}>
+            <div style={{ marginTop: &apos;4rem&apos; }}>
               <h2 style={{
-                fontSize: '2rem',
-                fontWeight: 'bold',
-                textAlign: 'center',
-                marginBottom: '2rem'
+                fontSize: &apos;2rem&apos;,
+                fontWeight: &apos;bold&apos;,
+                textAlign: &apos;center&apos;,
+                marginBottom: &apos;2rem&apos;
               }}>
                 Tarifs simples et transparents
               </h2>
               
               <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
-                gap: '1.5rem',
-                maxWidth: '1000px',
-                margin: '0 auto'
+                display: &apos;grid&apos;,
+                gridTemplateColumns: &apos;repeat(auto-fit, minmax(300px, 1fr))&apos;,
+                gap: &apos;1.5rem&apos;,
+                maxWidth: &apos;1000px&apos;,
+                margin: &apos;0 auto&apos;
               }}>
                 {/* Plan Gratuit */}
                 <div style={{
-                  backgroundColor: 'white',
-                  padding: '1.5rem',
-                  borderRadius: '0.75rem',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                  border: '2px solid #e5e7eb'
+                  backgroundColor: &apos;white&apos;,
+                  padding: &apos;1.5rem&apos;,
+                  borderRadius: &apos;0.75rem&apos;,
+                  boxShadow: &apos;0 4px 6px rgba(0,0,0,0.1)&apos;,
+                  border: &apos;2px solid #e5e7eb&apos;
                 }}>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>Gratuit</h3>
-                  <p style={{ color: '#6b7280', fontSize: '0.875rem', marginBottom: '1rem' }}>Pour tester AvisPro</p>
-                  <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1f2937', marginBottom: '1.5rem' }}>
-                    0€<span style={{ fontSize: '1rem', fontWeight: 'normal' }}>/mois</span>
+                  <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.5rem&apos; }}>Gratuit</h3>
+                  <p style={{ color: &apos;#6b7280&apos;, fontSize: &apos;0.875rem&apos;, marginBottom: &apos;1rem&apos; }}>Pour tester AvisPro</p>
+                  <div style={{ fontSize: &apos;2rem&apos;, fontWeight: &apos;bold&apos;, color: &apos;#1f2937&apos;, marginBottom: &apos;1.5rem&apos; }}>
+                    0€<span style={{ fontSize: &apos;1rem&apos;, fontWeight: &apos;normal&apos; }}>/mois</span>
                   </div>
-                  <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: '#10b981', borderRadius: '50%' }}></span>
-                      Jusqu'à 2 avis
+                  <ul style={{ listStyle: &apos;none&apos;, padding: 0, marginBottom: &apos;2rem&apos; }}>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;#10b981&apos;, borderRadius: &apos;50%&apos; }}></span>
+                      Jusqu&apos;à 2 avis
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: '#10b981', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;#10b981&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Page personnalisée
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: '#10b981', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;#10b981&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Formulaire de collecte
                     </li>
                   </ul>
                   <button 
-                    onClick={() => setCurrentView('signup')}
+                    onClick={() => setCurrentView(&apos;signup&apos;)}
                     style={{
-                      width: '100%',
-                      border: '2px solid #4f46e5',
-                      color: '#4f46e5',
-                      backgroundColor: 'transparent',
-                      padding: '0.75rem',
-                      borderRadius: '0.5rem',
-                      cursor: 'pointer',
-                      fontWeight: '600'
+                      width: &apos;100%&apos;,
+                      border: &apos;2px solid #4f46e5&apos;,
+                      color: &apos;#4f46e5&apos;,
+                      backgroundColor: &apos;transparent&apos;,
+                      padding: &apos;0.75rem&apos;,
+                      borderRadius: &apos;0.5rem&apos;,
+                      cursor: &apos;pointer&apos;,
+                      fontWeight: &apos;600&apos;
                     }}
                   >
                     Commencer gratuitement
@@ -342,60 +342,60 @@ export default function AvisProSimple() {
 
                 {/* Plan Premium */}
                 <div style={{
-                  backgroundColor: '#4f46e5',
-                  color: 'white',
-                  padding: '1.5rem',
-                  borderRadius: '0.75rem',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                  position: 'relative'
+                  backgroundColor: &apos;#4f46e5&apos;,
+                  color: &apos;white&apos;,
+                  padding: &apos;1.5rem&apos;,
+                  borderRadius: &apos;0.75rem&apos;,
+                  boxShadow: &apos;0 4px 6px rgba(0,0,0,0.1)&apos;,
+                  position: &apos;relative&apos;
                 }}>
                   <div style={{
-                    position: 'absolute',
-                    top: '-0.75rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    backgroundColor: '#fbbf24',
-                    color: '#1f2937',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.75rem',
-                    fontWeight: 'bold'
+                    position: &apos;absolute&apos;,
+                    top: &apos;-0.75rem&apos;,
+                    left: &apos;50%&apos;,
+                    transform: &apos;translateX(-50%)&apos;,
+                    backgroundColor: &apos;#fbbf24&apos;,
+                    color: &apos;#1f2937&apos;,
+                    padding: &apos;0.25rem 0.75rem&apos;,
+                    borderRadius: &apos;9999px&apos;,
+                    fontSize: &apos;0.75rem&apos;,
+                    fontWeight: &apos;bold&apos;
                   }}>
                     POPULAIRE
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>Premium</h3>
-                  <p style={{ color: '#c7d2fe', fontSize: '0.875rem', marginBottom: '1rem' }}>Mensuel</p>
-                  <div style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1.5rem' }}>
-                    5€<span style={{ fontSize: '1rem', fontWeight: 'normal' }}>/mois</span>
+                  <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.5rem&apos; }}>Premium</h3>
+                  <p style={{ color: &apos;#c7d2fe&apos;, fontSize: &apos;0.875rem&apos;, marginBottom: &apos;1rem&apos; }}>Mensuel</p>
+                  <div style={{ fontSize: &apos;2rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;1.5rem&apos; }}>
+                    5€<span style={{ fontSize: &apos;1rem&apos;, fontWeight: &apos;normal&apos; }}>/mois</span>
                   </div>
-                  <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: 'white', borderRadius: '50%' }}></span>
+                  <ul style={{ listStyle: &apos;none&apos;, padding: 0, marginBottom: &apos;2rem&apos; }}>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;white&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Avis illimités
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: 'white', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;white&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Photos dans les avis
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: 'white', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;white&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Page personnalisée
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: 'white', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;white&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Support prioritaire
                     </li>
                   </ul>
                   <button 
                     style={{
-                      width: '100%',
-                      backgroundColor: 'white',
-                      color: '#4f46e5',
-                      border: 'none',
-                      padding: '0.75rem',
-                      borderRadius: '0.5rem',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
+                      width: &apos;100%&apos;,
+                      backgroundColor: &apos;white&apos;,
+                      color: &apos;#4f46e5&apos;,
+                      border: &apos;none&apos;,
+                      padding: &apos;0.75rem&apos;,
+                      borderRadius: &apos;0.5rem&apos;,
+                      cursor: &apos;pointer&apos;,
+                      fontWeight: &apos;bold&apos;
                     }}
                   >
                     Choisir Premium
@@ -404,60 +404,60 @@ export default function AvisProSimple() {
 
                 {/* Plan Annuel */}
                 <div style={{
-                  background: 'linear-gradient(135deg, #16a34a 0%, #15803d 100%)',
-                  color: 'white',
-                  padding: '1.5rem',
-                  borderRadius: '0.75rem',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
-                  position: 'relative'
+                  background: &apos;linear-gradient(135deg, #16a34a 0%, #15803d 100%)&apos;,
+                  color: &apos;white&apos;,
+                  padding: &apos;1.5rem&apos;,
+                  borderRadius: &apos;0.75rem&apos;,
+                  boxShadow: &apos;0 4px 6px rgba(0,0,0,0.1)&apos;,
+                  position: &apos;relative&apos;
                 }}>
                   <div style={{
-                    position: 'absolute',
-                    top: '-0.75rem',
-                    left: '50%',
-                    transform: 'translateX(-50%)',
-                    backgroundColor: '#fbbf24',
-                    color: '#1f2937',
-                    padding: '0.25rem 0.75rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.75rem',
-                    fontWeight: 'bold'
+                    position: &apos;absolute&apos;,
+                    top: &apos;-0.75rem&apos;,
+                    left: &apos;50%&apos;,
+                    transform: &apos;translateX(-50%)&apos;,
+                    backgroundColor: &apos;#fbbf24&apos;,
+                    color: &apos;#1f2937&apos;,
+                    padding: &apos;0.25rem 0.75rem&apos;,
+                    borderRadius: &apos;9999px&apos;,
+                    fontSize: &apos;0.75rem&apos;,
+                    fontWeight: &apos;bold&apos;
                   }}>
                     ÉCONOMIE
                   </div>
-                  <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>Premium</h3>
-                  <p style={{ color: '#bbf7d0', fontSize: '0.875rem', marginBottom: '0.5rem' }}>12 mois</p>
-                  <div style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
-                    39€<span style={{ fontSize: '1rem', fontWeight: 'normal' }}>/an</span>
+                  <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.5rem&apos; }}>Premium</h3>
+                  <p style={{ color: &apos;#bbf7d0&apos;, fontSize: &apos;0.875rem&apos;, marginBottom: &apos;0.5rem&apos; }}>12 mois</p>
+                  <div style={{ fontSize: &apos;2rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.5rem&apos; }}>
+                    39€<span style={{ fontSize: &apos;1rem&apos;, fontWeight: &apos;normal&apos; }}>/an</span>
                   </div>
-                  <div style={{ fontSize: '0.875rem', color: '#bbf7d0', marginBottom: '1rem' }}>
-                    <span style={{ textDecoration: 'line-through' }}>60€</span> 
-                    <span style={{ fontWeight: 'bold', color: '#fbbf24', marginLeft: '0.5rem' }}>-35%</span>
+                  <div style={{ fontSize: &apos;0.875rem&apos;, color: &apos;#bbf7d0&apos;, marginBottom: &apos;1rem&apos; }}>
+                    <span style={{ textDecoration: &apos;line-through&apos; }}>60€</span> 
+                    <span style={{ fontWeight: &apos;bold&apos;, color: &apos;#fbbf24&apos;, marginLeft: &apos;0.5rem&apos; }}>-35%</span>
                   </div>
-                  <ul style={{ listStyle: 'none', padding: 0, marginBottom: '2rem' }}>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: 'white', borderRadius: '50%' }}></span>
+                  <ul style={{ listStyle: &apos;none&apos;, padding: 0, marginBottom: &apos;2rem&apos; }}>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;white&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Avis illimités
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: 'white', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;white&apos;, borderRadius: &apos;50%&apos; }}></span>
                       Photos dans les avis
                     </li>
-                    <li style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                      <span style={{ width: '0.5rem', height: '0.5rem', backgroundColor: '#fbbf24', borderRadius: '50%' }}></span>
+                    <li style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos;, marginBottom: &apos;0.75rem&apos; }}>
+                      <span style={{ width: &apos;0.5rem&apos;, height: &apos;0.5rem&apos;, backgroundColor: &apos;#fbbf24&apos;, borderRadius: &apos;50%&apos; }}></span>
                       2 mois gratuits
                     </li>
                   </ul>
                   <button 
                     style={{
-                      width: '100%',
-                      backgroundColor: 'white',
-                      color: '#16a34a',
-                      border: 'none',
-                      padding: '0.75rem',
-                      borderRadius: '0.5rem',
-                      cursor: 'pointer',
-                      fontWeight: 'bold'
+                      width: &apos;100%&apos;,
+                      backgroundColor: &apos;white&apos;,
+                      color: &apos;#16a34a&apos;,
+                      border: &apos;none&apos;,
+                      padding: &apos;0.75rem&apos;,
+                      borderRadius: &apos;0.5rem&apos;,
+                      cursor: &apos;pointer&apos;,
+                      fontWeight: &apos;bold&apos;
                     }}
                   >
                     Choisir 12 mois
@@ -465,8 +465,8 @@ export default function AvisProSimple() {
                 </div>
               </div>
 
-              <div style={{ textAlign: 'center', marginTop: '2rem' }}>
-                <p style={{ color: '#6b7280' }}>
+              <div style={{ textAlign: &apos;center&apos;, marginTop: &apos;2rem&apos; }}>
+                <p style={{ color: &apos;#6b7280&apos; }}>
                   ✨ Tous les plans incluent le support client • Annulation possible à tout moment
                 </p>
               </div>
@@ -477,91 +477,91 @@ export default function AvisProSimple() {
     );
   }
 
-  if (currentView === 'signup') {
+  if (currentView === &apos;signup&apos;) {
     return (
       <div style={{
-        minHeight: '100vh',
-        background: 'linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        fontFamily: 'system-ui, -apple-system, sans-serif'
+        minHeight: &apos;100vh&apos;,
+        background: &apos;linear-gradient(135deg, #dbeafe 0%, #c7d2fe 100%)&apos;,
+        display: &apos;flex&apos;,
+        alignItems: &apos;center&apos;,
+        justifyContent: &apos;center&apos;,
+        fontFamily: &apos;system-ui, -apple-system, sans-serif&apos;
       }}>
         <div style={{
-          backgroundColor: 'white',
-          padding: '2rem',
-          borderRadius: '1rem',
-          boxShadow: '0 10px 25px rgba(0,0,0,0.1)',
-          width: '100%',
-          maxWidth: '400px'
+          backgroundColor: &apos;white&apos;,
+          padding: &apos;2rem&apos;,
+          borderRadius: &apos;1rem&apos;,
+          boxShadow: &apos;0 10px 25px rgba(0,0,0,0.1)&apos;,
+          width: &apos;100%&apos;,
+          maxWidth: &apos;400px&apos;
         }}>
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <div style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#4f46e5', marginBottom: '0.5rem' }}>AvisPro</div>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>Créez votre page d'avis</h2>
-            <p style={{ color: '#6b7280' }}>En 2 minutes, c'est parti !</p>
+          <div style={{ textAlign: &apos;center&apos;, marginBottom: &apos;2rem&apos; }}>
+            <div style={{ fontSize: &apos;1.5rem&apos;, fontWeight: &apos;bold&apos;, color: &apos;#4f46e5&apos;, marginBottom: &apos;0.5rem&apos; }}>AvisPro</div>
+            <h2 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos; }}>Créez votre page d&apos;avis</h2>
+            <p style={{ color: &apos;#6b7280&apos; }}>En 2 minutes, c&apos;est parti !</p>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+          <div style={{ display: &apos;flex&apos;, flexDirection: &apos;column&apos;, gap: &apos;1rem&apos; }}>
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+              <label style={{ display: &apos;block&apos;, fontSize: &apos;0.875rem&apos;, fontWeight: &apos;500&apos;, color: &apos;#374151&apos;, marginBottom: &apos;0.25rem&apos; }}>
                 Votre nom/prénom
               </label>
               <input 
-                type="text" 
-                placeholder="Jean-Paul"
+                type=&quot;text&quot; 
+                placeholder=&quot;Jean-Paul&quot;
                 style={{
-                  width: '100%',
-                  padding: '0.75rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.5rem',
-                  fontSize: '1rem',
-                  outline: 'none'
+                  width: &apos;100%&apos;,
+                  padding: &apos;0.75rem&apos;,
+                  border: &apos;1px solid #d1d5db&apos;,
+                  borderRadius: &apos;0.5rem&apos;,
+                  fontSize: &apos;1rem&apos;,
+                  outline: &apos;none&apos;
                 }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+              <label style={{ display: &apos;block&apos;, fontSize: &apos;0.875rem&apos;, fontWeight: &apos;500&apos;, color: &apos;#374151&apos;, marginBottom: &apos;0.25rem&apos; }}>
                 Votre activité
               </label>
               <input 
-                type="text" 
-                placeholder="Maçonnerie JP"
+                type=&quot;text&quot; 
+                placeholder=&quot;Maçonnerie JP&quot;
                 style={{
-                  width: '100%',
-                  padding: '0.75rem',
-                  border: '1px solid #d1d5db',
-                  borderRadius: '0.5rem',
-                  fontSize: '1rem',
-                  outline: 'none'
+                  width: &apos;100%&apos;,
+                  padding: &apos;0.75rem&apos;,
+                  border: &apos;1px solid #d1d5db&apos;,
+                  borderRadius: &apos;0.5rem&apos;,
+                  fontSize: &apos;1rem&apos;,
+                  outline: &apos;none&apos;
                 }}
               />
             </div>
 
             <div>
-              <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+              <label style={{ display: &apos;block&apos;, fontSize: &apos;0.875rem&apos;, fontWeight: &apos;500&apos;, color: &apos;#374151&apos;, marginBottom: &apos;0.25rem&apos; }}>
                 Votre lien personnalisé
               </label>
-              <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos; }}>
                 <input 
-                  type="text" 
-                  placeholder="jean-paul"
+                  type=&quot;text&quot; 
+                  placeholder=&quot;jean-paul&quot;
                   style={{
                     flex: 1,
-                    padding: '0.75rem',
-                    border: '1px solid #d1d5db',
-                    borderRadius: '0.5rem 0 0 0.5rem',
-                    fontSize: '1rem',
-                    outline: 'none'
+                    padding: &apos;0.75rem&apos;,
+                    border: &apos;1px solid #d1d5db&apos;,
+                    borderRadius: &apos;0.5rem 0 0 0.5rem&apos;,
+                    fontSize: &apos;1rem&apos;,
+                    outline: &apos;none&apos;
                   }}
                 />
                 <span style={{
-                  padding: '0.75rem',
-                  backgroundColor: '#f3f4f6',
-                  border: '1px solid #d1d5db',
-                  borderLeft: 'none',
-                  borderRadius: '0 0.5rem 0.5rem 0',
-                  color: '#6b7280'
+                  padding: &apos;0.75rem&apos;,
+                  backgroundColor: &apos;#f3f4f6&apos;,
+                  border: &apos;1px solid #d1d5db&apos;,
+                  borderLeft: &apos;none&apos;,
+                  borderRadius: &apos;0 0.5rem 0.5rem 0&apos;,
+                  color: &apos;#6b7280&apos;
                 }}>
                   .avispro.com
                 </span>
@@ -569,36 +569,36 @@ export default function AvisProSimple() {
             </div>
 
             <button 
-              onClick={() => alert('Dashboard en cours de développement !')}
+              onClick={() => alert(&apos;Dashboard en cours de développement !&apos;)}
               style={{
-                width: '100%',
-                backgroundColor: '#4f46e5',
-                color: 'white',
-                padding: '0.75rem',
-                borderRadius: '0.5rem',
-                border: 'none',
-                cursor: 'pointer',
-                fontWeight: '600',
-                fontSize: '1rem'
+                width: &apos;100%&apos;,
+                backgroundColor: &apos;#4f46e5&apos;,
+                color: &apos;white&apos;,
+                padding: &apos;0.75rem&apos;,
+                borderRadius: &apos;0.5rem&apos;,
+                border: &apos;none&apos;,
+                cursor: &apos;pointer&apos;,
+                fontWeight: &apos;600&apos;,
+                fontSize: &apos;1rem&apos;
               }}
             >
               Créer ma page gratuitement
             </button>
           </div>
 
-          <div style={{ textAlign: 'center', marginTop: '1.5rem' }}>
+          <div style={{ textAlign: &apos;center&apos;, marginTop: &apos;1.5rem&apos; }}>
             <button 
-              onClick={() => setCurrentView('landing')}
+              onClick={() => setCurrentView(&apos;landing&apos;)}
               style={{
-                color: '#4f46e5',
-                textDecoration: 'underline',
-                border: 'none',
-                background: 'none',
-                cursor: 'pointer',
-                fontSize: '0.875rem'
+                color: &apos;#4f46e5&apos;,
+                textDecoration: &apos;underline&apos;,
+                border: &apos;none&apos;,
+                background: &apos;none&apos;,
+                cursor: &apos;pointer&apos;,
+                fontSize: &apos;0.875rem&apos;
               }}
             >
-              ← Retour à l'accueil
+              ← Retour à l&apos;accueil
             </button>
           </div>
         </div>
@@ -606,50 +606,50 @@ export default function AvisProSimple() {
     );
   }
 
-  if (currentView === 'public-page') {
+  if (currentView === &apos;public-page&apos;) {
     return (
       <div style={{
-        minHeight: '100vh',
-        backgroundColor: 'white',
-        fontFamily: 'system-ui, -apple-system, sans-serif'
+        minHeight: &apos;100vh&apos;,
+        backgroundColor: &apos;white&apos;,
+        fontFamily: &apos;system-ui, -apple-system, sans-serif&apos;
       }}>
         {/* Header */}
         <header style={{
-          backgroundColor: 'white',
-          boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-          position: 'sticky',
+          backgroundColor: &apos;white&apos;,
+          boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;,
+          position: &apos;sticky&apos;,
           top: 0,
           zIndex: 50
         }}>
           <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            padding: '1rem'
+            maxWidth: &apos;1200px&apos;,
+            margin: &apos;0 auto&apos;,
+            padding: &apos;1rem&apos;
           }}>
             <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center'
+              display: &apos;flex&apos;,
+              justifyContent: &apos;space-between&apos;,
+              alignItems: &apos;center&apos;
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.75rem&apos; }}>
                 <div style={{
-                  width: '3rem',
-                  height: '3rem',
-                  backgroundColor: '#d97706',
-                  borderRadius: '0.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  width: &apos;3rem&apos;,
+                  height: &apos;3rem&apos;,
+                  backgroundColor: &apos;#d97706&apos;,
+                  borderRadius: &apos;0.5rem&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;
                 }}>
-                  <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>JP</span>
+                  <span style={{ color: &apos;white&apos;, fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>JP</span>
                 </div>
                 <div>
-                  <h1 style={{ fontSize: '1.25rem', fontWeight: 'bold', color: '#1f2937' }}>Maçonnerie JP</h1>
-                  <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>Artisan depuis 15 ans</p>
+                  <h1 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, color: &apos;#1f2937&apos; }}>Maçonnerie JP</h1>
+                  <p style={{ fontSize: &apos;0.875rem&apos;, color: &apos;#6b7280&apos; }}>Artisan depuis 15 ans</p>
                 </div>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                <span style={{ fontSize: '0.875rem', fontWeight: '500' }}>📞 06 12 34 56 78</span>
+              <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos; }}>
+                <span style={{ fontSize: &apos;0.875rem&apos;, fontWeight: &apos;500&apos; }}>📞 06 12 34 56 78</span>
               </div>
             </div>
           </div>
@@ -657,74 +657,74 @@ export default function AvisProSimple() {
 
         {/* Hero Section */}
         <section style={{
-          background: 'linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)',
-          padding: '4rem 1rem'
+          background: &apos;linear-gradient(135deg, #fef3c7 0%, #fed7aa 100%)&apos;,
+          padding: &apos;4rem 1rem&apos;
         }}>
           <div style={{
-            maxWidth: '1200px',
-            margin: '0 auto',
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-            gap: '3rem',
-            alignItems: 'center'
+            maxWidth: &apos;1200px&apos;,
+            margin: &apos;0 auto&apos;,
+            display: &apos;grid&apos;,
+            gridTemplateColumns: &apos;repeat(auto-fit, minmax(400px, 1fr))&apos;,
+            gap: &apos;3rem&apos;,
+            alignItems: &apos;center&apos;
           }}>
             <div>
               <h1 style={{
-                fontSize: '2.5rem',
-                fontWeight: 'bold',
-                color: '#1f2937',
-                marginBottom: '1.5rem',
-                lineHeight: '1.2'
+                fontSize: &apos;2.5rem&apos;,
+                fontWeight: &apos;bold&apos;,
+                color: &apos;#1f2937&apos;,
+                marginBottom: &apos;1.5rem&apos;,
+                lineHeight: &apos;1.2&apos;
               }}>
                 Maçonnerie de qualité<br/>
-                <span style={{ color: '#d97706' }}>depuis 2009</span>
+                <span style={{ color: &apos;#d97706&apos; }}>depuis 2009</span>
               </h1>
               <p style={{
-                fontSize: '1.125rem',
-                color: '#6b7280',
-                marginBottom: '2rem'
+                fontSize: &apos;1.125rem&apos;,
+                color: &apos;#6b7280&apos;,
+                marginBottom: &apos;2rem&apos;
               }}>
                 Spécialisé dans la construction, rénovation et aménagement extérieur. 
                 Travail soigné, respect des délais et satisfaction client garantie.
               </p>
               <div style={{
-                display: 'flex',
-                alignItems: 'center',
-                gap: '1.5rem',
-                marginBottom: '2rem'
+                display: &apos;flex&apos;,
+                alignItems: &apos;center&apos;,
+                gap: &apos;1.5rem&apos;,
+                marginBottom: &apos;2rem&apos;
               }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
-                  <span style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>5.0</span>
-                  <span style={{ color: '#6b7280' }}>(2 avis)</span>
+                <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos; }}>
+                  <span style={{ color: &apos;#fbbf24&apos; }}>⭐⭐⭐⭐⭐</span>
+                  <span style={{ fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>5.0</span>
+                  <span style={{ color: &apos;#6b7280&apos; }}>(2 avis)</span>
                 </div>
-                <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                <div style={{ fontSize: &apos;0.875rem&apos;, color: &apos;#6b7280&apos; }}>
                   ✅ Devis gratuit<br/>
                   ✅ Assurance décennale
                 </div>
               </div>
-              <div style={{ display: 'flex', gap: '1rem' }}>
+              <div style={{ display: &apos;flex&apos;, gap: &apos;1rem&apos; }}>
                 <button style={{
-                  backgroundColor: '#d97706',
-                  color: 'white',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '0.5rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontWeight: '600'
+                  backgroundColor: &apos;#d97706&apos;,
+                  color: &apos;white&apos;,
+                  padding: &apos;0.75rem 1.5rem&apos;,
+                  borderRadius: &apos;0.5rem&apos;,
+                  border: &apos;none&apos;,
+                  cursor: &apos;pointer&apos;,
+                  fontWeight: &apos;600&apos;
                 }}>
                   Demander un devis
                 </button>
                 <button 
-                  onClick={() => alert('Formulaire d\'avis en cours...')}
+                  onClick={() => alert(&apos;Formulaire d\'avis en cours...&apos;)}
                   style={{
-                    border: '2px solid #d97706',
-                    color: '#d97706',
-                    backgroundColor: 'transparent',
-                    padding: '0.75rem 1.5rem',
-                    borderRadius: '0.5rem',
-                    cursor: 'pointer',
-                    fontWeight: '600'
+                    border: &apos;2px solid #d97706&apos;,
+                    color: &apos;#d97706&apos;,
+                    backgroundColor: &apos;transparent&apos;,
+                    padding: &apos;0.75rem 1.5rem&apos;,
+                    borderRadius: &apos;0.5rem&apos;,
+                    cursor: &apos;pointer&apos;,
+                    fontWeight: &apos;600&apos;
                   }}
                 >
                   Laisser un avis
@@ -732,172 +732,172 @@ export default function AvisProSimple() {
               </div>
             </div>
             <div style={{
-              backgroundColor: '#e5e7eb',
-              borderRadius: '1rem',
-              height: '24rem',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center'
+              backgroundColor: &apos;#e5e7eb&apos;,
+              borderRadius: &apos;1rem&apos;,
+              height: &apos;24rem&apos;,
+              display: &apos;flex&apos;,
+              alignItems: &apos;center&apos;,
+              justifyContent: &apos;center&apos;
             }}>
-              <span style={{ color: '#6b7280' }}>Photo chantier principal</span>
+              <span style={{ color: &apos;#6b7280&apos; }}>Photo chantier principal</span>
             </div>
           </div>
         </section>
 
         {/* Services */}
-        <section style={{ padding: '4rem 1rem', backgroundColor: 'white' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <section style={{ padding: &apos;4rem 1rem&apos;, backgroundColor: &apos;white&apos; }}>
+          <div style={{ maxWidth: &apos;1200px&apos;, margin: &apos;0 auto&apos; }}>
             <h2 style={{
-              fontSize: '2rem',
-              fontWeight: 'bold',
-              textAlign: 'center',
-              marginBottom: '3rem'
+              fontSize: &apos;2rem&apos;,
+              fontWeight: &apos;bold&apos;,
+              textAlign: &apos;center&apos;,
+              marginBottom: &apos;3rem&apos;
             }}>
               Mes services
             </h2>
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-              gap: '2rem'
+              display: &apos;grid&apos;,
+              gridTemplateColumns: &apos;repeat(auto-fit, minmax(250px, 1fr))&apos;,
+              gap: &apos;2rem&apos;
             }}>
-              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
+              <div style={{ textAlign: &apos;center&apos;, padding: &apos;1.5rem&apos; }}>
                 <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#fef3c7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1rem auto'
+                  width: &apos;4rem&apos;,
+                  height: &apos;4rem&apos;,
+                  backgroundColor: &apos;#fef3c7&apos;,
+                  borderRadius: &apos;50%&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;,
+                  margin: &apos;0 auto 1rem auto&apos;
                 }}>
-                  <span style={{ fontSize: '1.5rem' }}>🏗️</span>
+                  <span style={{ fontSize: &apos;1.5rem&apos; }}>🏗️</span>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Construction</h3>
-                <p style={{ color: '#6b7280' }}>Maisons, extensions, garages. Du gros œuvre aux finitions.</p>
+                <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.75rem&apos; }}>Construction</h3>
+                <p style={{ color: &apos;#6b7280&apos; }}>Maisons, extensions, garages. Du gros œuvre aux finitions.</p>
               </div>
-              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
+              <div style={{ textAlign: &apos;center&apos;, padding: &apos;1.5rem&apos; }}>
                 <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#fef3c7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1rem auto'
+                  width: &apos;4rem&apos;,
+                  height: &apos;4rem&apos;,
+                  backgroundColor: &apos;#fef3c7&apos;,
+                  borderRadius: &apos;50%&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;,
+                  margin: &apos;0 auto 1rem auto&apos;
                 }}>
-                  <span style={{ fontSize: '1.5rem' }}>🔨</span>
+                  <span style={{ fontSize: &apos;1.5rem&apos; }}>🔨</span>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Rénovation</h3>
-                <p style={{ color: '#6b7280' }}>Réfection complète, mise aux normes, modernisation.</p>
+                <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.75rem&apos; }}>Rénovation</h3>
+                <p style={{ color: &apos;#6b7280&apos; }}>Réfection complète, mise aux normes, modernisation.</p>
               </div>
-              <div style={{ textAlign: 'center', padding: '1.5rem' }}>
+              <div style={{ textAlign: &apos;center&apos;, padding: &apos;1.5rem&apos; }}>
                 <div style={{
-                  width: '4rem',
-                  height: '4rem',
-                  backgroundColor: '#fef3c7',
-                  borderRadius: '50%',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  margin: '0 auto 1rem auto'
+                  width: &apos;4rem&apos;,
+                  height: &apos;4rem&apos;,
+                  backgroundColor: &apos;#fef3c7&apos;,
+                  borderRadius: &apos;50%&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;,
+                  margin: &apos;0 auto 1rem auto&apos;
                 }}>
-                  <span style={{ fontSize: '1.5rem' }}>🌿</span>
+                  <span style={{ fontSize: &apos;1.5rem&apos; }}>🌿</span>
                 </div>
-                <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.75rem' }}>Aménagement</h3>
-                <p style={{ color: '#6b7280' }}>Terrasses, allées, murets, aménagement paysager.</p>
+                <h3 style={{ fontSize: &apos;1.25rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;0.75rem&apos; }}>Aménagement</h3>
+                <p style={{ color: &apos;#6b7280&apos; }}>Terrasses, allées, murets, aménagement paysager.</p>
               </div>
             </div>
           </div>
         </section>
 
         {/* Avis Section */}
-        <section style={{ padding: '4rem 1rem', backgroundColor: '#f9fafb' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
-            <div style={{ textAlign: 'center', marginBottom: '3rem' }}>
-              <h2 style={{ fontSize: '2rem', fontWeight: 'bold', marginBottom: '1rem' }}>Ce que disent mes clients</h2>
+        <section style={{ padding: &apos;4rem 1rem&apos;, backgroundColor: &apos;#f9fafb&apos; }}>
+          <div style={{ maxWidth: &apos;1200px&apos;, margin: &apos;0 auto&apos; }}>
+            <div style={{ textAlign: &apos;center&apos;, marginBottom: &apos;3rem&apos; }}>
+              <h2 style={{ fontSize: &apos;2rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;1rem&apos; }}>Ce que disent mes clients</h2>
               <p style={{
-                fontSize: '1.125rem',
-                color: '#6b7280',
-                marginBottom: '1.5rem'
+                fontSize: &apos;1.125rem&apos;,
+                color: &apos;#6b7280&apos;,
+                marginBottom: &apos;1.5rem&apos;
               }}>
                 La satisfaction client est ma priorité. Découvrez les retours de mes derniers chantiers.
               </p>
               <div style={{
-                display: 'flex',
-                justifyContent: 'center',
-                gap: '1rem',
-                marginBottom: '2rem'
+                display: &apos;flex&apos;,
+                justifyContent: &apos;center&apos;,
+                gap: &apos;1rem&apos;,
+                marginBottom: &apos;2rem&apos;
               }}>
                 <div style={{
-                  backgroundColor: 'white',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '9999px',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                  backgroundColor: &apos;white&apos;,
+                  padding: &apos;1rem 1.5rem&apos;,
+                  borderRadius: &apos;9999px&apos;,
+                  boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;
                 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
-                    <span style={{ fontWeight: 'bold', fontSize: '1.25rem' }}>5.0</span>
-                    <span style={{ color: '#6b7280' }}>/ 5</span>
+                  <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.5rem&apos; }}>
+                    <span style={{ color: &apos;#fbbf24&apos; }}>⭐⭐⭐⭐⭐</span>
+                    <span style={{ fontWeight: &apos;bold&apos;, fontSize: &apos;1.25rem&apos; }}>5.0</span>
+                    <span style={{ color: &apos;#6b7280&apos; }}>/ 5</span>
                   </div>
                 </div>
                 <div style={{
-                  backgroundColor: 'white',
-                  padding: '1rem 1.5rem',
-                  borderRadius: '9999px',
-                  boxShadow: '0 1px 3px rgba(0,0,0,0.1)'
+                  backgroundColor: &apos;white&apos;,
+                  padding: &apos;1rem 1.5rem&apos;,
+                  borderRadius: &apos;9999px&apos;,
+                  boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;
                 }}>
-                  <span style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>2</span>
-                  <span style={{ color: '#6b7280', marginLeft: '0.25rem' }}>avis clients</span>
+                  <span style={{ fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>2</span>
+                  <span style={{ color: &apos;#6b7280&apos;, marginLeft: &apos;0.25rem&apos; }}>avis clients</span>
                 </div>
               </div>
             </div>
 
             <div style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
-              gap: '1.5rem',
-              marginBottom: '3rem'
+              display: &apos;grid&apos;,
+              gridTemplateColumns: &apos;repeat(auto-fit, minmax(400px, 1fr))&apos;,
+              gap: &apos;1.5rem&apos;,
+              marginBottom: &apos;3rem&apos;
             }}>
               <div style={{
-                backgroundColor: 'white',
-                padding: '1.5rem',
-                borderRadius: '0.75rem',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                border: '1px solid #e5e7eb'
+                backgroundColor: &apos;white&apos;,
+                padding: &apos;1.5rem&apos;,
+                borderRadius: &apos;0.75rem&apos;,
+                boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;,
+                border: &apos;1px solid #e5e7eb&apos;
               }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                <div style={{ display: &apos;flex&apos;, alignItems: &apos;flex-start&apos;, gap: &apos;1rem&apos; }}>
                   <div style={{
-                    width: '3.5rem',
-                    height: '3.5rem',
-                    background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
+                    width: &apos;3.5rem&apos;,
+                    height: &apos;3.5rem&apos;,
+                    background: &apos;linear-gradient(135deg, #fbbf24 0%, #d97706 100%)&apos;,
+                    borderRadius: &apos;50%&apos;,
+                    display: &apos;flex&apos;,
+                    alignItems: &apos;center&apos;,
+                    justifyContent: &apos;center&apos;
                   }}>
-                    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>M</span>
+                    <span style={{ color: &apos;white&apos;, fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>M</span>
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      marginBottom: '0.75rem'
+                      display: &apos;flex&apos;,
+                      alignItems: &apos;center&apos;,
+                      gap: &apos;0.75rem&apos;,
+                      marginBottom: &apos;0.75rem&apos;
                     }}>
-                      <h3 style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>Marie Dubois</h3>
-                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
+                      <h3 style={{ fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>Marie Dubois</h3>
+                      <span style={{ color: &apos;#fbbf24&apos; }}>⭐⭐⭐⭐⭐</span>
                     </div>
                     <p style={{
-                      color: '#374151',
-                      lineHeight: '1.6',
-                      marginBottom: '0.75rem',
-                      fontStyle: 'italic'
+                      color: &apos;#374151&apos;,
+                      lineHeight: &apos;1.6&apos;,
+                      marginBottom: &apos;0.75rem&apos;,
+                      fontStyle: &apos;italic&apos;
                     }}>
-                      "Travail impeccable ! Jean-Paul a refait ma terrasse en 3 jours. Très professionnel et soigneux."
+                      &quot;Travail impeccable ! Jean-Paul a refait ma terrasse en 3 jours. Très professionnel et soigneux.&quot;
                     </p>
-                    <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                    <div style={{ fontSize: &apos;0.875rem&apos;, color: &apos;#6b7280&apos; }}>
                       Chantier réalisé le 2025-08-10
                     </div>
                   </div>
@@ -905,43 +905,43 @@ export default function AvisProSimple() {
               </div>
 
               <div style={{
-                backgroundColor: 'white',
-                padding: '1.5rem',
-                borderRadius: '0.75rem',
-                boxShadow: '0 1px 3px rgba(0,0,0,0.1)',
-                border: '1px solid #e5e7eb'
+                backgroundColor: &apos;white&apos;,
+                padding: &apos;1.5rem&apos;,
+                borderRadius: &apos;0.75rem&apos;,
+                boxShadow: &apos;0 1px 3px rgba(0,0,0,0.1)&apos;,
+                border: &apos;1px solid #e5e7eb&apos;
               }}>
-                <div style={{ display: 'flex', alignItems: 'flex-start', gap: '1rem' }}>
+                <div style={{ display: &apos;flex&apos;, alignItems: &apos;flex-start&apos;, gap: &apos;1rem&apos; }}>
                   <div style={{
-                    width: '3.5rem',
-                    height: '3.5rem',
-                    background: 'linear-gradient(135deg, #fbbf24 0%, #d97706 100%)',
-                    borderRadius: '50%',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center'
+                    width: &apos;3.5rem&apos;,
+                    height: &apos;3.5rem&apos;,
+                    background: &apos;linear-gradient(135deg, #fbbf24 0%, #d97706 100%)&apos;,
+                    borderRadius: &apos;50%&apos;,
+                    display: &apos;flex&apos;,
+                    alignItems: &apos;center&apos;,
+                    justifyContent: &apos;center&apos;
                   }}>
-                    <span style={{ color: 'white', fontWeight: 'bold', fontSize: '1.125rem' }}>P</span>
+                    <span style={{ color: &apos;white&apos;, fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>P</span>
                   </div>
                   <div style={{ flex: 1 }}>
                     <div style={{
-                      display: 'flex',
-                      alignItems: 'center',
-                      gap: '0.75rem',
-                      marginBottom: '0.75rem'
+                      display: &apos;flex&apos;,
+                      alignItems: &apos;center&apos;,
+                      gap: &apos;0.75rem&apos;,
+                      marginBottom: &apos;0.75rem&apos;
                     }}>
-                      <h3 style={{ fontWeight: 'bold', fontSize: '1.125rem' }}>Philippe Martin</h3>
-                      <span style={{ color: '#fbbf24' }}>⭐⭐⭐⭐⭐</span>
+                      <h3 style={{ fontWeight: &apos;bold&apos;, fontSize: &apos;1.125rem&apos; }}>Philippe Martin</h3>
+                      <span style={{ color: &apos;#fbbf24&apos; }}>⭐⭐⭐⭐⭐</span>
                     </div>
                     <p style={{
-                      color: '#374151',
-                      lineHeight: '1.6',
-                      marginBottom: '0.75rem',
-                      fontStyle: 'italic'
+                      color: &apos;#374151&apos;,
+                      lineHeight: &apos;1.6&apos;,
+                      marginBottom: &apos;0.75rem&apos;,
+                      fontStyle: &apos;italic&apos;
                     }}>
-                      "Excellent maçon, ponctuel et de bon conseil. Je recommande vivement !"
+                      &quot;Excellent maçon, ponctuel et de bon conseil. Je recommande vivement !&quot;
                     </p>
-                    <div style={{ fontSize: '0.875rem', color: '#6b7280' }}>
+                    <div style={{ fontSize: &apos;0.875rem&apos;, color: &apos;#6b7280&apos; }}>
                       Chantier réalisé le 2025-08-05
                     </div>
                   </div>
@@ -950,34 +950,34 @@ export default function AvisProSimple() {
             </div>
 
             <div style={{
-              background: 'linear-gradient(135deg, #f59e0b 0%, #d97706 100%)',
-              borderRadius: '1rem',
-              padding: '2rem',
-              textAlign: 'center',
-              color: 'white'
+              background: &apos;linear-gradient(135deg, #f59e0b 0%, #d97706 100%)&apos;,
+              borderRadius: &apos;1rem&apos;,
+              padding: &apos;2rem&apos;,
+              textAlign: &apos;center&apos;,
+              color: &apos;white&apos;
             }}>
-              <h3 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+              <h3 style={{ fontSize: &apos;1.5rem&apos;, fontWeight: &apos;bold&apos;, marginBottom: &apos;1rem&apos; }}>
                 Vous avez travaillé avec moi ?
               </h3>
               <p style={{
-                fontSize: '1.125rem',
-                marginBottom: '1.5rem',
-                color: '#fef3c7'
+                fontSize: &apos;1.125rem&apos;,
+                marginBottom: &apos;1.5rem&apos;,
+                color: &apos;#fef3c7&apos;
               }}>
-                Votre avis m'aide à améliorer mes services et guide mes futurs clients
+                Votre avis m&apos;aide à améliorer mes services et guide mes futurs clients
               </p>
               <button 
-                onClick={() => alert('Formulaire d\'avis sera bientôt disponible !')}
+                onClick={() => alert(&apos;Formulaire d\'avis sera bientôt disponible !&apos;)}
                 style={{
-                  backgroundColor: 'white',
-                  color: '#d97706',
-                  padding: '1rem 2rem',
-                  borderRadius: '0.75rem',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '1.125rem',
-                  fontWeight: 'bold',
-                  boxShadow: '0 4px 6px rgba(0,0,0,0.1)'
+                  backgroundColor: &apos;white&apos;,
+                  color: &apos;#d97706&apos;,
+                  padding: &apos;1rem 2rem&apos;,
+                  borderRadius: &apos;0.75rem&apos;,
+                  border: &apos;none&apos;,
+                  cursor: &apos;pointer&apos;,
+                  fontSize: &apos;1.125rem&apos;,
+                  fontWeight: &apos;bold&apos;,
+                  boxShadow: &apos;0 4px 6px rgba(0,0,0,0.1)&apos;
                 }}
               >
                 ⭐ Laisser un avis
@@ -987,74 +987,74 @@ export default function AvisProSimple() {
         </section>
 
         {/* Footer */}
-        <footer style={{ backgroundColor: '#1f2937', color: 'white', padding: '2rem 1rem' }}>
-          <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
+        <footer style={{ backgroundColor: &apos;#1f2937&apos;, color: &apos;white&apos;, padding: &apos;2rem 1rem&apos; }}>
+          <div style={{ maxWidth: &apos;1200px&apos;, margin: &apos;0 auto&apos; }}>
             <div style={{
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '1rem'
+              display: &apos;flex&apos;,
+              justifyContent: &apos;space-between&apos;,
+              alignItems: &apos;center&apos;,
+              flexWrap: &apos;wrap&apos;,
+              gap: &apos;1rem&apos;
             }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;0.75rem&apos; }}>
                 <div style={{
-                  width: '2.5rem',
-                  height: '2.5rem',
-                  backgroundColor: '#d97706',
-                  borderRadius: '0.5rem',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center'
+                  width: &apos;2.5rem&apos;,
+                  height: &apos;2.5rem&apos;,
+                  backgroundColor: &apos;#d97706&apos;,
+                  borderRadius: &apos;0.5rem&apos;,
+                  display: &apos;flex&apos;,
+                  alignItems: &apos;center&apos;,
+                  justifyContent: &apos;center&apos;
                 }}>
-                  <span style={{ color: 'white', fontWeight: 'bold' }}>JP</span>
+                  <span style={{ color: &apos;white&apos;, fontWeight: &apos;bold&apos; }}>JP</span>
                 </div>
                 <div>
-                  <p style={{ fontWeight: 'bold' }}>Maçonnerie JP</p>
-                  <p style={{ fontSize: '0.875rem', color: '#9ca3af' }}>Jean-Paul Dubois - Artisan maçon</p>
+                  <p style={{ fontWeight: &apos;bold&apos; }}>Maçonnerie JP</p>
+                  <p style={{ fontSize: &apos;0.875rem&apos;, color: &apos;#9ca3af&apos; }}>Jean-Paul Dubois - Artisan maçon</p>
                 </div>
               </div>
-              <div style={{ textAlign: 'center', fontSize: '0.875rem', color: '#9ca3af' }}>
+              <div style={{ textAlign: &apos;center&apos;, fontSize: &apos;0.875rem&apos;, color: &apos;#9ca3af&apos; }}>
                 <p>© 2025 Maçonnerie JP - Tous droits réservés</p>
-                <p style={{ marginTop: '0.25rem' }}>
-                  Site créé avec{' '}
+                <p style={{ marginTop: &apos;0.25rem&apos; }}>
+                  Site créé avec{&apos; &apos;}
                   <button 
-                    onClick={() => setCurrentView('landing')}
+                    onClick={() => setCurrentView(&apos;landing&apos;)}
                     style={{
-                      color: '#fbbf24',
-                      textDecoration: 'underline',
-                      border: 'none',
-                      background: 'none',
-                      cursor: 'pointer'
+                      color: &apos;#fbbf24&apos;,
+                      textDecoration: &apos;underline&apos;,
+                      border: &apos;none&apos;,
+                      background: &apos;none&apos;,
+                      cursor: &apos;pointer&apos;
                     }}
                   >
                     AvisPro
                   </button>
                 </p>
               </div>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <div style={{ display: &apos;flex&apos;, alignItems: &apos;center&apos;, gap: &apos;1rem&apos; }}>
                 <button 
-                  onClick={() => alert('Dashboard admin en développement !')}
+                  onClick={() => alert(&apos;Dashboard admin en développement !&apos;)}
                   style={{
-                    color: '#fbbf24',
-                    textDecoration: 'underline',
-                    border: 'none',
-                    background: 'none',
-                    cursor: 'pointer',
-                    fontSize: '0.875rem'
+                    color: &apos;#fbbf24&apos;,
+                    textDecoration: &apos;underline&apos;,
+                    border: &apos;none&apos;,
+                    background: &apos;none&apos;,
+                    cursor: &apos;pointer&apos;,
+                    fontSize: &apos;0.875rem&apos;
                   }}
                 >
                   🔧 Mode Admin
                 </button>
                 <button 
-                  onClick={() => alert('Test client : Formulaire bientôt disponible !')}
+                  onClick={() => alert(&apos;Test client : Formulaire bientôt disponible !&apos;)}
                   style={{
-                    backgroundColor: '#f59e0b',
-                    color: 'white',
-                    padding: '0.5rem 1rem',
-                    borderRadius: '0.5rem',
-                    border: 'none',
-                    cursor: 'pointer',
-                    fontSize: '0.875rem'
+                    backgroundColor: &apos;#f59e0b&apos;,
+                    color: &apos;white&apos;,
+                    padding: &apos;0.5rem 1rem&apos;,
+                    borderRadius: &apos;0.5rem&apos;,
+                    border: &apos;none&apos;,
+                    cursor: &apos;pointer&apos;,
+                    fontSize: &apos;0.875rem&apos;
                   }}
                 >
                   👤 Tester comme client
