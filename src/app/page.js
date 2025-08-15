@@ -287,11 +287,11 @@ export default function AvisProSimple() {
             }}>
               <span style={{ color: '#6b7280' }}>Photo chantier principal</span>
             </div>
-          </div>
-        </section>
-
-        {/* Services */}
-        <section style={{ padding: '4rem 1rem', backgroundColor: 'white' }}>
+              </div>
+            </section>
+			
+            {/* Services */}
+            <section style={{ padding: '4rem 1rem', backgroundColor: 'white' }}>
           <div style={{ maxWidth: '1200px', margin: '0 auto' }}>
             <h2 style={{
               fontSize: '2rem',
