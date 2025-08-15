@@ -1,36 +1,45 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+﻿# 🌟 AvisPro - SaaS de gestion d'avis clients
 
-## Getting Started
+AvisPro est un SaaS permettant aux professionnels (artisans, consultants, freelances) de collecter et afficher facilement les avis de leurs clients sur une page personnalisée.
 
-First, run the development server:
+## ✨ Fonctionnalités
+
+- 🚀 **Création rapide** : Page d'avis en 2 minutes
+- 🎨 **Page personnalisée** : `votrenom.avispro.com`
+- 📝 **Collecte facile** : Formulaire simple pour les clients
+- ⚡ **Modération** : Approuver/rejeter les avis depuis le dashboard
+- 💰 **Freemium** : Gratuit jusqu'à 2 avis, Premium illimité
+- 📸 **Photos** : Upload d'images (Premium)
+- 🔒 **Sécurisé** : Authentification et données protégées
+
+## 🛠️ Stack technique
+
+- **Frontend** : Next.js 14, React 18, TailwindCSS
+- **Backend** : API Routes Vercel
+- **Base de données** : Supabase (PostgreSQL)
+- **Authentification** : Supabase Auth
+- **Paiements** : Stripe
+- **Hébergement** : Vercel
+
+## 🚀 Installation
 
 ```bash
+# Installer les dépendances
+npm install
+
+# Configuration
+# Remplir les variables d'environnement dans .env.local
+
+# Lancer en développement
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 💝 Business Model
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Gratuit** : 0€/mois - Jusqu'à 2 avis
+- **Premium** : 5€/mois - Avis illimités + photos
+- **Premium annuel** : 39€/an - Économie de 35%
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 Licence
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+MIT License
