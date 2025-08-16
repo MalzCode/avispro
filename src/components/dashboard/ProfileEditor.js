@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '../../contexts/AuthContext';
 import { themes } from '../../data/themes';
+import { settings } from '../../lib/supabase';
 import ThemePreview from '../themes/ThemePreview';
 
 export default function ProfileEditor({ isOpen, onClose }) {
@@ -91,15 +92,41 @@ export default function ProfileEditor({ isOpen, onClose }) {
     setSaving(true);
 
     try {
-      const { error } = await updateProfile(formData);
+      // Mettre à jour le profil principal
+      const { error: profileError } = await updateProfile(formData);
       
-      if (error) {
-        alert('Erreur lors de la mise à jour: ' + error.message);
-      } else {
-        alert('Profil mis à jour avec succès !');
-        onClose();
+      if (profileError) {
+        alert('Erreur lors de la mise à jour du profil: ' + profileError.message);
+        setSaving(false);
+        return;
       }
+
+      // Mettre à jour les paramètres avec le thème sélectionné
+      if (profile && profile.id) {
+        try {
+          const { error: settingsError } = await settings.update(profile.id, {
+            selected_theme_id: formData.theme_id
+          });
+          
+          if (settingsError) {
+            console.warn('Error updating theme settings:', settingsError);
+            // Créer les paramètres s'ils n'existent pas
+            const { error: createError } = await settings.create(profile.id);
+            if (!createError) {
+              await settings.update(profile.id, {
+                selected_theme_id: formData.theme_id
+              });
+            }
+          }
+        } catch (settingsErr) {
+          console.warn('Settings update error:', settingsErr);
+        }
+      }
+      
+      alert('Profil mis à jour avec succès !');
+      onClose();
     } catch (err) {
+      console.error('Update error:', err);
       alert('Erreur inattendue lors de la mise à jour');
     }
     

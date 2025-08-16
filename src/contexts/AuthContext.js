@@ -18,6 +18,16 @@ export const AuthProvider = ({ children }) => {
   const [profile, setProfile] = useState(null);
   const [loading, setLoading] = useState(true);
 
+  // Timeout de sécurité pour éviter le loading infini
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      console.warn('Loading timeout reached, forcing loading to false');
+      setLoading(false);
+    }, 10000); // 10 secondes maximum
+
+    return () => clearTimeout(timeout);
+  }, []);
+
   useEffect(() => {
     // Récupérer la session actuelle
     const getSession = async () => {
@@ -36,40 +46,85 @@ export const AuthProvider = ({ children }) => {
         if (session?.user) {
           // Récupérer le profil de l'utilisateur
           console.log('Getting profile for user:', session.user.id);
-          const { data: profileData, error: profileError } = await profiles.getById(session.user.id);
-          console.log('Profile data:', profileData, 'Error:', profileError);
-          
-          if (profileError || !profileData) {
-            console.warn('Profile not found, creating basic profile');
-            // Créer un profil de base automatiquement
+          try {
+            const { data: profileData, error: profileError } = await profiles.getById(session.user.id);
+            console.log('Profile data:', profileData, 'Error:', profileError);
+            
+            if (profileError || !profileData) {
+              console.warn('Profile not found, creating basic profile');
+              // Créer un profil de base automatiquement
+              const username = session.user.email?.split('@')[0]?.toLowerCase().replace(/[^a-z0-9]/g, '') || 'user';
+              
+              // Générer un username unique
+              let uniqueUsername = username;
+              let counter = 1;
+              while (counter <= 10) { // Limiter les tentatives
+                try {
+                  const { data: existingProfile } = await profiles.getByUsername(uniqueUsername);
+                  if (!existingProfile) break;
+                  uniqueUsername = `${username}${counter}`;
+                  counter++;
+                } catch (e) {
+                  // Si erreur de vérification, on continue avec le username actuel
+                  break;
+                }
+              }
+              
+              const basicProfile = {
+                user_id: session.user.id,
+                username: uniqueUsername,
+                business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
+                email: session.user.email,
+                phone: null,
+                description: null
+              };
+              
+              try {
+                const { data: newProfile, error: createError } = await profiles.create(basicProfile);
+                if (!createError && newProfile && newProfile[0]) {
+                  console.log('Basic profile created:', newProfile[0]);
+                  setProfile(newProfile[0]);
+                } else {
+                  console.warn('Failed to create basic profile:', createError);
+                  // Même en cas d'échec, on continue avec un profil minimal
+                  setProfile({
+                    user_id: session.user.id,
+                    username: uniqueUsername,
+                    business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
+                    email: session.user.email
+                  });
+                }
+              } catch (createErr) {
+                console.warn('Error creating basic profile:', createErr);
+                // Profil minimal en cas d'échec total
+                setProfile({
+                  user_id: session.user.id,
+                  username: uniqueUsername,
+                  business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
+                  email: session.user.email
+                });
+              }
+            } else {
+              setProfile(profileData);
+            }
+          } catch (profileErr) {
+            console.warn('Profile fetch error:', profileErr);
+            // Profil minimal même en cas d'erreur de fetch
             const username = session.user.email?.split('@')[0]?.toLowerCase().replace(/[^a-z0-9]/g, '') || 'user';
-            const basicProfile = {
-              id: session.user.id,
+            setProfile({
+              user_id: session.user.id,
               username: username,
               business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
-              phone: null,
-              description: null
-            };
-            
-            try {
-              const { data: newProfile, error: createError } = await profiles.create(basicProfile);
-              if (!createError && newProfile) {
-                console.log('Basic profile created:', newProfile[0]);
-                setProfile(newProfile[0]);
-              } else {
-                console.warn('Failed to create basic profile:', createError);
-                setProfile(null);
-              }
-            } catch (createErr) {
-              console.warn('Error creating basic profile:', createErr);
-              setProfile(null);
-            }
-          } else {
-            setProfile(profileData);
+              email: session.user.email
+            });
           }
+        } else {
+          setProfile(null);
         }
       } catch (error) {
         console.warn('Auth error:', error);
+        setUser(null);
+        setProfile(null);
       }
       
       console.log('Setting loading to false');
@@ -105,7 +160,6 @@ export const AuthProvider = ({ children }) => {
                 }
                 
                 const basicProfile = {
-                  id: session.user.id,
                   user_id: session.user.id,
                   username: uniqueUsername,
                   business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
@@ -191,13 +245,12 @@ export const AuthProvider = ({ children }) => {
         
         // Créer le profil utilisateur avec le username unique
         const profileData = {
-          id: data.user.id,
-          user_id: data.user.id, // Ajouter user_id pour compatibilité
+          user_id: data.user.id, // Utiliser user_id comme clé principale
           username: uniqueUsername,
           business_name: userData.business_name,
           phone: userData.phone || null,
           description: userData.description || null,
-          email: email, // Ajouter l'email du profil
+          email: email,
           is_active: true
         };
         
@@ -253,12 +306,24 @@ export const AuthProvider = ({ children }) => {
     try {
       if (!user) throw new Error('No user logged in');
       
+      console.log('Updating profile for user:', user.id, 'with:', updates);
       const { data, error } = await profiles.update(user.id, updates);
       if (error) throw error;
       
-      setProfile(data[0]);
+      if (data && data[0]) {
+        console.log('Profile updated successfully:', data[0]);
+        setProfile(data[0]);
+      } else {
+        // Si pas de données retournées, recharger le profil
+        const { data: refreshedProfile } = await profiles.getById(user.id);
+        if (refreshedProfile) {
+          setProfile(refreshedProfile);
+        }
+      }
+      
       return { data, error: null };
     } catch (error) {
+      console.error('Profile update error:', error);
       return { data: null, error };
     }
   };

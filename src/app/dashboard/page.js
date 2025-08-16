@@ -100,6 +100,9 @@ export default function DashboardPage() {
             <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
           </svg>
           <div>Chargement de votre dashboard...</div>
+          <div style={{ fontSize: '0.75rem', color: '#9ca3af', marginTop: '0.5rem' }}>
+            User: {user ? '✓' : '✗'} | Profile: {profile ? '✓' : '✗'}
+          </div>
         </div>
       </div>
     );

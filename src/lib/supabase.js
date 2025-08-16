@@ -75,25 +75,40 @@ export const profiles = {
     return { data, error }
   },
 
-  // Obtenir un profil par ID
-  getById: async (id) => {
+  // Obtenir un profil par ID utilisateur
+  getById: async (userId) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
+    console.log('Getting profile by user_id:', userId);
+    const { data, error } = await supabase
+      .from('profiles')
+      .select('*')
+      .eq('user_id', userId)
+      .single()
+    console.log('Profile query result:', data, error);
+    return { data, error }
+  },
+
+  // Obtenir un profil par son ID propre
+  getByProfileId: async (profileId) => {
     if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('profiles')
       .select('*')
-      .eq('id', id)
+      .eq('id', profileId)
       .single()
     return { data, error }
   },
 
-  // Mettre à jour un profil
-  update: async (id, updates) => {
+  // Mettre à jour un profil par user_id
+  update: async (userId, updates) => {
     if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
+    console.log('Updating profile for user_id:', userId, 'with updates:', updates);
     const { data, error } = await supabase
       .from('profiles')
       .update(updates)
-      .eq('id', id)
+      .eq('user_id', userId)
       .select()
+    console.log('Profile update result:', data, error);
     return { data, error }
   }
 }
