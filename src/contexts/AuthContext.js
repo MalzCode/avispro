@@ -21,13 +21,22 @@ export const AuthProvider = ({ children }) => {
   useEffect(() => {
     // Récupérer la session actuelle
     const getSession = async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      setUser(session?.user ?? null);
+      if (!supabase) {
+        setLoading(false);
+        return;
+      }
       
-      if (session?.user) {
-        // Récupérer le profil de l'utilisateur
-        const { data: profileData } = await profiles.getById(session.user.id);
-        setProfile(profileData);
+      try {
+        const { data: { session } } = await supabase.auth.getSession();
+        setUser(session?.user ?? null);
+        
+        if (session?.user) {
+          // Récupérer le profil de l'utilisateur
+          const { data: profileData } = await profiles.getById(session.user.id);
+          setProfile(profileData);
+        }
+      } catch (error) {
+        console.warn('Auth error:', error);
       }
       
       setLoading(false);
@@ -36,22 +45,24 @@ export const AuthProvider = ({ children }) => {
     getSession();
 
     // Écouter les changements d'authentification
-    const { data: { subscription } } = supabase.auth.onAuthStateChange(
-      async (event, session) => {
-        setUser(session?.user ?? null);
-        
-        if (session?.user) {
-          const { data: profileData } = await profiles.getById(session.user.id);
-          setProfile(profileData);
-        } else {
-          setProfile(null);
+    if (supabase) {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange(
+        async (event, session) => {
+          setUser(session?.user ?? null);
+          
+          if (session?.user) {
+            const { data: profileData } = await profiles.getById(session.user.id);
+            setProfile(profileData);
+          } else {
+            setProfile(null);
+          }
+          
+          setLoading(false);
         }
-        
-        setLoading(false);
-      }
-    );
+      );
 
-    return () => subscription.unsubscribe();
+      return () => subscription.unsubscribe();
+    }
   }, []);
 
   // Fonction d'inscription
