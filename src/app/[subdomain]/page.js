@@ -3,6 +3,8 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { profiles, reviews } from '../../lib/supabase';
+import { getThemeConfig } from '../../data/themes';
+import ThemePreview from '../../components/themes/ThemePreview';
 import Link from 'next/link';
 
 export default function PublicProfilePage() {
@@ -173,6 +175,21 @@ export default function PublicProfilePage() {
     ? (profileReviews.reduce((sum, r) => sum + r.rating, 0) / profileReviews.length).toFixed(1)
     : 0;
 
+  // Utiliser le thème du profil ou le thème par défaut
+  const themeId = profile?.theme_id || 'professional';
+  
+  // Si le profil a un thème personnalisé, utiliser ThemePreview
+  if (profile && profile.theme_id && profile.theme_id !== 'default') {
+    return (
+      <ThemePreview 
+        themeId={themeId}
+        profile={profile}
+        reviews={profileReviews}
+      />
+    );
+  }
+
+  // Sinon, utiliser le design par défaut existant
   return (
     <div style={{ 
       minHeight: '100vh',

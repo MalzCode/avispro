@@ -21,7 +21,8 @@ CREATE TABLE profiles (
     country TEXT DEFAULT 'France',
     
     -- Paramètres
-    theme_color TEXT DEFAULT '#667eea',
+    theme_id TEXT DEFAULT 'professional' CHECK (theme_id IN ('professional', 'modern', 'artisan', 'tech', 'creative')),
+    theme_config JSONB DEFAULT '{}', -- configuration personnalisée du thème
     custom_domain TEXT, -- pour domaine personnalisé
     
     -- Statut et limites

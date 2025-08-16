@@ -7,6 +7,7 @@ import Link from 'next/link';
 import { reviews } from '../../lib/supabase';
 import ShareModal from '../../components/dashboard/ShareModal';
 import CustomizeModal from '../../components/dashboard/CustomizeModal';
+import ProfileEditor from '../../components/dashboard/ProfileEditor';
 
 export default function DashboardPage() {
   const { user, profile, loading, signOut } = useAuth();
@@ -14,6 +15,7 @@ export default function DashboardPage() {
   const [reviewsLoading, setReviewsLoading] = useState(false);
   const [showShareModal, setShowShareModal] = useState(false);
   const [showCustomizeModal, setShowCustomizeModal] = useState(false);
+  const [showProfileEditor, setShowProfileEditor] = useState(false);
   const router = useRouter();
 
   // Rediriger si pas connecté
@@ -283,7 +285,7 @@ export default function DashboardPage() {
               </div>
             </Link>
             <button 
-              onClick={() => setShowCustomizeModal(true)}
+              onClick={() => setShowProfileEditor(true)}
               style={{
                 background: 'rgba(255, 255, 255, 0.2)',
                 backdropFilter: 'blur(10px)',
@@ -298,13 +300,14 @@ export default function DashboardPage() {
             >
               <div style={{ marginBottom: '0.5rem' }}>
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-                  <path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1-8.313-12.454z" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M17 4a2 2 0 0 0 2 2 2 2 0 0 0-2 2 2 2 0 0 0-2-2 2 2 0 0 0 2-2" stroke="currentColor" strokeWidth="2"/>
+                  <path d="M9 11a2 2 0 0 0 2 2 2 2 0 0 0-2 2 2 2 0 0 0-2-2 2 2 0 0 0 2-2" stroke="currentColor" strokeWidth="2"/>
                 </svg>
               </div>
-              <div>Personnaliser</div>
+              <div>Éditeur avancé</div>
               <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '0.25rem' }}>
-                Modifier les infos
+                Thèmes + Aperçu
               </div>
             </button>
             <button 
@@ -645,6 +648,10 @@ export default function DashboardPage() {
         <CustomizeModal 
           isOpen={showCustomizeModal}
           onClose={() => setShowCustomizeModal(false)}
+        />
+        <ProfileEditor 
+          isOpen={showProfileEditor}
+          onClose={() => setShowProfileEditor(false)}
         />
       </div>
     </div>
