@@ -5,6 +5,11 @@
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"
 
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-eval' 'unsafe-inline' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: https:; font-src 'self' data: https:; connect-src 'self' https:;"
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
