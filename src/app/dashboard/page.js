@@ -79,6 +79,44 @@ export default function DashboardPage() {
     }
   };
 
+  // Supprimer définitivement un avis
+  const deleteReview = async (reviewId) => {
+    if (!confirm('Êtes-vous sûr de vouloir supprimer définitivement cet avis ?')) {
+      return;
+    }
+    
+    const { error } = await reviews.delete(reviewId);
+    if (!error) {
+      setUserReviews(prev => prev.filter(review => review.id !== reviewId));
+    } else {
+      alert('Erreur lors de la suppression de l\'avis');
+    }
+  };
+
+  // Changer l'ordre des avis (monter)
+  const moveReviewUp = async (reviewId) => {
+    const reviewIndex = userReviews.findIndex(r => r.id === reviewId);
+    if (reviewIndex > 0) {
+      const newReviews = [...userReviews];
+      [newReviews[reviewIndex], newReviews[reviewIndex - 1]] = [newReviews[reviewIndex - 1], newReviews[reviewIndex]];
+      setUserReviews(newReviews);
+      
+      // TODO: Sauvegarder l'ordre en base (ajouter un champ display_order)
+    }
+  };
+
+  // Changer l'ordre des avis (descendre)
+  const moveReviewDown = async (reviewId) => {
+    const reviewIndex = userReviews.findIndex(r => r.id === reviewId);
+    if (reviewIndex < userReviews.length - 1) {
+      const newReviews = [...userReviews];
+      [newReviews[reviewIndex], newReviews[reviewIndex + 1]] = [newReviews[reviewIndex + 1], newReviews[reviewIndex]];
+      setUserReviews(newReviews);
+      
+      // TODO: Sauvegarder l'ordre en base (ajouter un champ display_order)
+    }
+  };
+
   if (loading) {
     return (
       <div style={{ 
@@ -373,7 +411,7 @@ export default function DashboardPage() {
                         {new Date(review.created_at).toLocaleDateString('fr-FR')}
                       </p>
                     </div>
-                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                    <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                       <button 
                         onClick={() => approveReview(review.id)}
                         style={{
@@ -383,10 +421,16 @@ export default function DashboardPage() {
                           borderRadius: '0.25rem',
                           border: 'none',
                           cursor: 'pointer',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.25rem'
                         }}
                       >
-                        ✓ Approuver
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                        </svg>
+                        Approuver
                       </button>
                       <button 
                         onClick={() => rejectReview(review.id)}
@@ -397,10 +441,17 @@ export default function DashboardPage() {
                           borderRadius: '0.25rem',
                           border: 'none',
                           cursor: 'pointer',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.25rem'
                         }}
                       >
-                        ✗ Rejeter
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                          <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                          <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                        </svg>
+                        Rejeter
                       </button>
                     </div>
                   </div>
@@ -563,41 +614,176 @@ export default function DashboardPage() {
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {userReviews.map(review => (
+              {userReviews.map((review, index) => (
                 <div 
                   key={review.id} 
                   style={{ 
                     border: '1px solid #e5e7eb', 
-                    borderRadius: '0.5rem', 
-                    padding: '1rem',
-                    backgroundColor: review.status === 'approved' ? '#f0fdf4' : review.status === 'rejected' ? '#fef2f2' : '#fffbeb'
+                    borderRadius: '0.75rem', 
+                    padding: '1.5rem',
+                    backgroundColor: review.status === 'approved' ? '#f0fdf4' : review.status === 'rejected' ? '#fef2f2' : '#fffbeb',
+                    position: 'relative'
                   }}
                 >
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start' }}>
+                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: '1rem' }}>
                     <div style={{ flex: 1 }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
-                        <span style={{ fontWeight: '600' }}>{review.customer_name}</span>
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+                        <span style={{ fontWeight: '600', fontSize: '1.125rem' }}>{review.customer_name}</span>
                         <div style={{ display: 'flex', gap: '0.25rem' }}>
                           {[...Array(5)].map((_, i) => (
-                            <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill={i < review.rating ? '#fbbf24' : '#e5e7eb'} xmlns="http://www.w3.org/2000/svg">
+                            <svg key={i} width="18" height="18" viewBox="0 0 24 24" fill={i < review.rating ? '#fbbf24' : '#e5e7eb'} xmlns="http://www.w3.org/2000/svg">
                               <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                             </svg>
                           ))}
                         </div>
                         <span style={{ 
                           fontSize: '0.75rem', 
-                          padding: '0.25rem 0.5rem', 
-                          borderRadius: '0.25rem',
+                          padding: '0.25rem 0.75rem', 
+                          borderRadius: '1rem',
                           backgroundColor: review.status === 'approved' ? '#10b981' : review.status === 'rejected' ? '#ef4444' : '#f59e0b',
-                          color: 'white'
+                          color: 'white',
+                          fontWeight: '600'
                         }}>
                           {review.status === 'approved' ? 'Approuvé' : review.status === 'rejected' ? 'Rejeté' : 'En attente'}
                         </span>
                       </div>
-                      <p style={{ color: '#374151', marginBottom: '0.5rem' }}>&quot;{review.comment}&quot;</p>
+                      <p style={{ color: '#374151', marginBottom: '0.75rem', fontSize: '1rem', lineHeight: '1.5' }}>
+                        &quot;{review.comment}&quot;
+                      </p>
                       <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>
                         {new Date(review.created_at).toLocaleDateString('fr-FR')}
                       </p>
+                    </div>
+                    
+                    {/* Contrôles d'action */}
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', minWidth: 'max-content' }}>
+                      {/* Contrôles d'ordre */}
+                      <div style={{ display: 'flex', gap: '0.25rem' }}>
+                        <button 
+                          onClick={() => moveReviewUp(review.id)}
+                          disabled={index === 0}
+                          title="Monter"
+                          style={{
+                            backgroundColor: index === 0 ? '#e5e7eb' : '#6b7280',
+                            color: 'white',
+                            padding: '0.5rem',
+                            borderRadius: '0.25rem',
+                            border: 'none',
+                            cursor: index === 0 ? 'not-allowed' : 'pointer',
+                            fontSize: '0.75rem',
+                            width: '32px',
+                            height: '32px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                          }}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="18,15 12,9 6,15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                        <button 
+                          onClick={() => moveReviewDown(review.id)}
+                          disabled={index === userReviews.length - 1}
+                          title="Descendre"
+                          style={{
+                            backgroundColor: index === userReviews.length - 1 ? '#e5e7eb' : '#6b7280',
+                            color: 'white',
+                            padding: '0.5rem',
+                            borderRadius: '0.25rem',
+                            border: 'none',
+                            cursor: index === userReviews.length - 1 ? 'not-allowed' : 'pointer',
+                            fontSize: '0.75rem',
+                            width: '32px',
+                            height: '32px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                          }}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="6,9 12,15 18,9" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
+                      
+                      {/* Actions de modération */}
+                      <div style={{ display: 'flex', gap: '0.25rem' }}>
+                        {review.status === 'pending' && (
+                          <>
+                            <button 
+                              onClick={() => approveReview(review.id)}
+                              title="Approuver"
+                              style={{
+                                backgroundColor: '#10b981',
+                                color: 'white',
+                                padding: '0.5rem',
+                                borderRadius: '0.25rem',
+                                border: 'none',
+                                cursor: 'pointer',
+                                fontSize: '0.75rem',
+                                width: '32px',
+                                height: '32px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                              }}
+                            >
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                <polyline points="20,6 9,17 4,12" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                              </svg>
+                            </button>
+                            <button 
+                              onClick={() => rejectReview(review.id)}
+                              title="Rejeter"
+                              style={{
+                                backgroundColor: '#ef4444',
+                                color: 'white',
+                                padding: '0.5rem',
+                                borderRadius: '0.25rem',
+                                border: 'none',
+                                cursor: 'pointer',
+                                fontSize: '0.75rem',
+                                width: '32px',
+                                height: '32px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center'
+                              }}
+                            >
+                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                                <line x1="18" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                                <line x1="6" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" strokeLinecap="round"/>
+                              </svg>
+                            </button>
+                          </>
+                        )}
+                        
+                        {/* Bouton supprimer pour tous les avis */}
+                        <button 
+                          onClick={() => deleteReview(review.id)}
+                          title="Supprimer définitivement"
+                          style={{
+                            backgroundColor: '#991b1b',
+                            color: 'white',
+                            padding: '0.5rem',
+                            borderRadius: '0.25rem',
+                            border: 'none',
+                            cursor: 'pointer',
+                            fontSize: '0.75rem',
+                            width: '32px',
+                            height: '32px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center'
+                          }}
+                        >
+                          <svg width="14" height="14" viewBox="0 0 24 24" fill="none">
+                            <polyline points="3,6 5,6 21,6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            <path d="M19,6v14a2,2,0,0,1-2,2H7a2,2,0,0,1-2-2V6m3,0V4a2,2,0,0,1,2-2h4a2,2,0,0,1,2,2V6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                          </svg>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
