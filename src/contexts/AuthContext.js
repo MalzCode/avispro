@@ -39,9 +39,31 @@ export const AuthProvider = ({ children }) => {
           const { data: profileData, error: profileError } = await profiles.getById(session.user.id);
           console.log('Profile data:', profileData, 'Error:', profileError);
           
-          if (profileError) {
-            console.warn('Profile not found, user may need to complete setup');
-            setProfile(null);
+          if (profileError || !profileData) {
+            console.warn('Profile not found, creating basic profile');
+            // Créer un profil de base automatiquement
+            const username = session.user.email?.split('@')[0]?.toLowerCase().replace(/[^a-z0-9]/g, '') || 'user';
+            const basicProfile = {
+              id: session.user.id,
+              username: username,
+              business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
+              phone: null,
+              description: null
+            };
+            
+            try {
+              const { data: newProfile, error: createError } = await profiles.create(basicProfile);
+              if (!createError && newProfile) {
+                console.log('Basic profile created:', newProfile[0]);
+                setProfile(newProfile[0]);
+              } else {
+                console.warn('Failed to create basic profile:', createError);
+                setProfile(null);
+              }
+            } catch (createErr) {
+              console.warn('Error creating basic profile:', createErr);
+              setProfile(null);
+            }
           } else {
             setProfile(profileData);
           }

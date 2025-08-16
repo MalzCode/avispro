@@ -29,16 +29,24 @@ export default function CustomizeModal({ isOpen, onClose }) {
     e.preventDefault();
     setSaving(true);
 
-    const { error } = await updateProfile(formData);
-    
-    if (error) {
-      alert('Erreur lors de la mise à jour');
-    } else {
-      setSuccess(true);
-      setTimeout(() => {
-        setSuccess(false);
-        onClose();
-      }, 2000);
+    try {
+      console.log('Updating profile with:', formData);
+      const { error } = await updateProfile(formData);
+      
+      if (error) {
+        console.error('Profile update error:', error);
+        alert('Erreur lors de la mise à jour: ' + error.message);
+      } else {
+        console.log('Profile updated successfully');
+        setSuccess(true);
+        setTimeout(() => {
+          setSuccess(false);
+          onClose();
+        }, 2000);
+      }
+    } catch (err) {
+      console.error('Unexpected error:', err);
+      alert('Erreur inattendue lors de la mise à jour');
     }
     
     setSaving(false);
