@@ -1,8 +1,9 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { useAuth } from '../../contexts/AuthContext';
+import { profiles } from '../../lib/supabase';
 import Link from 'next/link';
 
 export default function SignUpPage() {
@@ -16,6 +17,8 @@ export default function SignUpPage() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [success, setSuccess] = useState(false);
+  const [usernameAvailable, setUsernameAvailable] = useState(null);
+  const [checkingUsername, setCheckingUsername] = useState(false);
 
   const { signUp } = useAuth();
   const router = useRouter();
@@ -25,6 +28,28 @@ export default function SignUpPage() {
       ...formData,
       [e.target.name]: e.target.value
     });
+    
+    // Vérifier la disponibilité du username en temps réel
+    if (e.target.name === 'username' && e.target.value.length >= 3) {
+      checkUsernameAvailability(e.target.value);
+    }
+  };
+
+  const checkUsernameAvailability = async (username) => {
+    const cleanUsername = username.toLowerCase().replace(/[^a-z0-9-]/g, '');
+    if (cleanUsername.length < 3) return;
+    
+    setCheckingUsername(true);
+    
+    try {
+      const { data: existingProfile } = await profiles.getByUsername(cleanUsername);
+      setUsernameAvailable(!existingProfile);
+    } catch (err) {
+      console.log('Username check error:', err);
+      setUsernameAvailable(null);
+    }
+    
+    setCheckingUsername(false);
   };
 
   const handleSubmit = async (e) => {
@@ -48,7 +73,25 @@ export default function SignUpPage() {
     // Nettoyer le username (enlever espaces, caractères spéciaux)
     const cleanUsername = formData.username.toLowerCase().replace(/[^a-z0-9-]/g, '');
     
+    if (!cleanUsername) {
+      setError('Le nom d\'utilisateur ne peut pas être vide après nettoyage');
+      setLoading(false);
+      return;
+    }
+
+    if (cleanUsername.length < 3) {
+      setError('Le nom d\'utilisateur doit contenir au moins 3 caractères');
+      setLoading(false);
+      return;
+    }
+    
     try {
+      console.log('Starting signup process with:', { 
+        email: formData.email, 
+        username: cleanUsername,
+        business_name: formData.business_name 
+      });
+      
       const { data, error } = await signUp(formData.email, formData.password, {
         username: cleanUsername,
         business_name: formData.business_name,
@@ -58,9 +101,11 @@ export default function SignUpPage() {
       if (error) {
         console.error('Signup error:', error);
         setError(error.message || 'Erreur lors de la création du compte');
+        setLoading(false);
       } else {
         console.log('Signup successful:', data);
         setSuccess(true);
+        setLoading(false);
         // Rediriger vers le dashboard après 2 secondes
         setTimeout(() => {
           router.push('/dashboard');
@@ -69,9 +114,8 @@ export default function SignUpPage() {
     } catch (err) {
       console.error('Unexpected signup error:', err);
       setError('Erreur inattendue lors de la création du compte');
+      setLoading(false);
     }
-
-    setLoading(false);
   };
 
   if (success) {
@@ -259,6 +303,17 @@ export default function SignUpPage() {
                 .avispro.com
               </span>
             </div>
+            {formData.username.length >= 3 && (
+              <div style={{ marginTop: '0.5rem', fontSize: '0.875rem' }}>
+                {checkingUsername ? (
+                  <span style={{ color: '#6b7280' }}>🔍 Vérification...</span>
+                ) : usernameAvailable === true ? (
+                  <span style={{ color: '#16a34a' }}>✅ Disponible</span>
+                ) : usernameAvailable === false ? (
+                  <span style={{ color: '#dc2626' }}>❌ Déjà pris</span>
+                ) : null}
+              </div>
+            )}
           </div>
 
           <div>

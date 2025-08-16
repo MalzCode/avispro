@@ -129,9 +129,21 @@ export const AuthProvider = ({ children }) => {
         
         // Vérifier si le username existe déjà
         while (true) {
-          const { data: existingProfile } = await profiles.getByUsername(uniqueUsername);
-          if (!existingProfile) break; // Username disponible
+          console.log(`Checking if username '${uniqueUsername}' exists...`);
+          const { data: existingProfile, error: checkError } = await profiles.getByUsername(uniqueUsername);
           
+          if (checkError && checkError.code !== 'PGRST116') {
+            // Erreur autre que "not found"
+            console.error('Error checking username:', checkError);
+            throw new Error('Erreur lors de la vérification du nom d\'utilisateur');
+          }
+          
+          if (!existingProfile) {
+            console.log(`Username '${uniqueUsername}' is available`);
+            break; // Username disponible
+          }
+          
+          console.log(`Username '${uniqueUsername}' already exists, trying next...`);
           uniqueUsername = `${userData.username}${counter}`;
           counter++;
           
@@ -161,6 +173,11 @@ export const AuthProvider = ({ children }) => {
         }
         
         console.log('Profile created successfully:', newProfile);
+        
+        // Mettre à jour l'état local immédiatement
+        if (newProfile && newProfile[0]) {
+          setProfile(newProfile[0]);
+        }
       }
       
       return { data, error: null };
