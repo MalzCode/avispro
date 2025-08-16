@@ -22,23 +22,35 @@ export const AuthProvider = ({ children }) => {
     // Récupérer la session actuelle
     const getSession = async () => {
       if (!supabase) {
+        console.log('No supabase client, setting loading to false');
         setLoading(false);
         return;
       }
       
       try {
+        console.log('Getting session...');
         const { data: { session } } = await supabase.auth.getSession();
+        console.log('Session:', session?.user?.email);
         setUser(session?.user ?? null);
         
         if (session?.user) {
           // Récupérer le profil de l'utilisateur
-          const { data: profileData } = await profiles.getById(session.user.id);
-          setProfile(profileData);
+          console.log('Getting profile for user:', session.user.id);
+          const { data: profileData, error: profileError } = await profiles.getById(session.user.id);
+          console.log('Profile data:', profileData, 'Error:', profileError);
+          
+          if (profileError) {
+            console.warn('Profile not found, user may need to complete setup');
+            setProfile(null);
+          } else {
+            setProfile(profileData);
+          }
         }
       } catch (error) {
         console.warn('Auth error:', error);
       }
       
+      console.log('Setting loading to false');
       setLoading(false);
     };
 
@@ -48,11 +60,22 @@ export const AuthProvider = ({ children }) => {
     if (supabase) {
       const { data: { subscription } } = supabase.auth.onAuthStateChange(
         async (event, session) => {
+          console.log('Auth state change:', event, session?.user?.email);
           setUser(session?.user ?? null);
           
           if (session?.user) {
-            const { data: profileData } = await profiles.getById(session.user.id);
-            setProfile(profileData);
+            try {
+              const { data: profileData, error: profileError } = await profiles.getById(session.user.id);
+              if (profileError) {
+                console.warn('Profile error in auth change:', profileError);
+                setProfile(null);
+              } else {
+                setProfile(profileData);
+              }
+            } catch (error) {
+              console.warn('Error getting profile in auth change:', error);
+              setProfile(null);
+            }
           } else {
             setProfile(null);
           }
@@ -62,6 +85,11 @@ export const AuthProvider = ({ children }) => {
       );
 
       return () => subscription.unsubscribe();
+    }
+    
+    // Assurons-nous que loading passe à false même sans supabase
+    if (!supabase) {
+      setLoading(false);
     }
   }, []);
 
