@@ -178,16 +178,14 @@ export default function PublicProfilePage() {
   // Utiliser le thème du profil ou le thème par défaut
   const themeId = profile?.theme_id || 'professional';
   
-  // Si le profil a un thème personnalisé, utiliser ThemePreview
-  if (profile && profile.theme_id && profile.theme_id !== 'default') {
-    return (
-      <ThemePreview 
-        themeId={themeId}
-        profile={profile}
-        reviews={profileReviews}
-      />
-    );
-  }
+  // Toujours utiliser ThemePreview maintenant avec les nouveaux designs
+  return (
+    <ThemePreview 
+      themeId={themeId}
+      profile={profile}
+      reviews={profileReviews}
+    />
+  );
 
   // Sinon, utiliser le design par défaut existant
   return (

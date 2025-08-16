@@ -92,42 +92,25 @@ export default function ProfileEditor({ isOpen, onClose }) {
     setSaving(true);
 
     try {
+      console.log('ProfileEditor: Starting profile update with data:', formData);
+      console.log('ProfileEditor: Current profile:', profile);
+      
       // Mettre à jour le profil principal
       const { error: profileError } = await updateProfile(formData);
       
       if (profileError) {
+        console.error('ProfileEditor: Profile update error:', profileError);
         alert('Erreur lors de la mise à jour du profil: ' + profileError.message);
         setSaving(false);
         return;
       }
 
-      // Mettre à jour les paramètres avec le thème sélectionné
-      if (profile && profile.id) {
-        try {
-          const { error: settingsError } = await settings.update(profile.id, {
-            selected_theme_id: formData.theme_id
-          });
-          
-          if (settingsError) {
-            console.warn('Error updating theme settings:', settingsError);
-            // Créer les paramètres s'ils n'existent pas
-            const { error: createError } = await settings.create(profile.id);
-            if (!createError) {
-              await settings.update(profile.id, {
-                selected_theme_id: formData.theme_id
-              });
-            }
-          }
-        } catch (settingsErr) {
-          console.warn('Settings update error:', settingsErr);
-        }
-      }
-      
+      console.log('ProfileEditor: Profile updated successfully');
       alert('Profil mis à jour avec succès !');
       onClose();
     } catch (err) {
-      console.error('Update error:', err);
-      alert('Erreur inattendue lors de la mise à jour');
+      console.error('ProfileEditor: Unexpected error:', err);
+      alert('Erreur inattendue lors de la mise à jour: ' + err.message);
     }
     
     setSaving(false);

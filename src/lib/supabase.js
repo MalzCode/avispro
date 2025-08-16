@@ -103,13 +103,34 @@ export const profiles = {
   update: async (userId, updates) => {
     if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     console.log('Updating profile for user_id:', userId, 'with updates:', updates);
-    const { data, error } = await supabase
-      .from('profiles')
-      .update(updates)
-      .eq('user_id', userId)
-      .select()
-    console.log('Profile update result:', data, error);
-    return { data, error }
+    
+    try {
+      // Filtrer les champs qui n'existent peut-être pas encore dans la table
+      const allowedFields = ['business_name', 'description', 'phone', 'email', 'website', 'logo_image', 'banner_image', 'theme_id', 'theme_config'];
+      const filteredUpdates = {};
+      
+      Object.keys(updates).forEach(key => {
+        if (allowedFields.includes(key)) {
+          filteredUpdates[key] = updates[key];
+        } else {
+          console.warn(`Field ${key} might not exist in profiles table, skipping for now`);
+        }
+      });
+      
+      console.log('Filtered updates:', filteredUpdates);
+      
+      const { data, error } = await supabase
+        .from('profiles')
+        .update(filteredUpdates)
+        .eq('user_id', userId)
+        .select()
+      
+      console.log('Profile update result:', data, error);
+      return { data, error };
+    } catch (err) {
+      console.error('Profile update exception:', err);
+      return { data: null, error: err };
+    }
   }
 }
 
