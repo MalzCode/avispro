@@ -78,16 +78,34 @@ export default function DashboardPage() {
         minHeight: '100vh', 
         display: 'flex', 
         alignItems: 'center', 
-        justifyContent: 'center' 
+        justifyContent: 'center',
+        fontFamily: 'system-ui, -apple-system, sans-serif'
       }}>
-        <div>Chargement...</div>
+        <div style={{
+          backgroundColor: 'white',
+          padding: '2rem',
+          borderRadius: '1rem',
+          boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+          textAlign: 'center'
+        }}>
+          <div style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>⏳</div>
+          <div>Chargement de votre dashboard...</div>
+        </div>
       </div>
     );
   }
 
-  if (!user || !profile) {
+  if (!user) {
     return null;
   }
+
+  // Profil par défaut si pas encore créé
+  const displayProfile = profile || {
+    business_name: user.email?.split('@')[0] || 'Mon Entreprise',
+    username: user.email?.split('@')[0]?.toLowerCase().replace(/[^a-z0-9]/g, '') || 'demo',
+    description: null,
+    phone: null
+  };
 
   const pendingReviews = userReviews.filter(r => r.status === 'pending');
   const approvedReviews = userReviews.filter(r => r.status === 'approved');
@@ -105,7 +123,7 @@ export default function DashboardPage() {
             <span style={{ marginLeft: '1rem', color: '#6b7280' }}>Dashboard</span>
           </div>
           <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-            <span style={{ color: '#6b7280' }}>Bonjour, {profile.business_name}</span>
+            <span style={{ color: '#6b7280' }}>Bonjour, {displayProfile.business_name}</span>
             <button 
               onClick={handleSignOut}
               style={{
@@ -125,77 +143,154 @@ export default function DashboardPage() {
 
       <div style={{ maxWidth: '1200px', margin: '0 auto', padding: '2rem 1rem' }}>
         {/* Statistiques */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: '500', color: '#6b7280', marginBottom: '0.5rem' }}>TOTAL AVIS</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1f2937' }}>{userReviews.length}</p>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '1.5rem', marginBottom: '2rem' }}>
+          <div style={{ 
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white',
+            padding: '2rem', 
+            borderRadius: '1rem', 
+            boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>📊</div>
+            <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>TOTAL AVIS</h3>
+            <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{userReviews.length}</p>
+            <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+              {userReviews.length === 0 ? 'Commencez à collecter' : userReviews.length === 1 ? 'Premier avis reçu !' : 'Excellente progression !'}
+            </p>
           </div>
           
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: '500', color: '#6b7280', marginBottom: '0.5rem' }}>EN ATTENTE</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#f59e0b' }}>{pendingReviews.length}</p>
+          <div style={{ 
+            background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+            color: 'white',
+            padding: '2rem', 
+            borderRadius: '1rem', 
+            boxShadow: '0 8px 25px rgba(245, 87, 108, 0.3)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>⏳</div>
+            <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>EN ATTENTE</h3>
+            <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{pendingReviews.length}</p>
+            <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+              {pendingReviews.length === 0 ? 'Aucune modération' : pendingReviews.length === 1 ? 'À modérer' : 'Avis à traiter'}
+            </p>
           </div>
           
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: '500', color: '#6b7280', marginBottom: '0.5rem' }}>APPROUVÉS</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#10b981' }}>{approvedReviews.length}</p>
+          <div style={{ 
+            background: 'linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)',
+            color: 'white',
+            padding: '2rem', 
+            borderRadius: '1rem', 
+            boxShadow: '0 8px 25px rgba(79, 172, 254, 0.3)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>✅</div>
+            <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>APPROUVÉS</h3>
+            <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{approvedReviews.length}</p>
+            <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+              {approvedReviews.length === 0 ? 'Prêt à publier' : 'Visibles sur votre page'}
+            </p>
           </div>
           
-          <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-            <h3 style={{ fontSize: '0.875rem', fontWeight: '500', color: '#6b7280', marginBottom: '0.5rem' }}>NOTE MOYENNE</h3>
-            <p style={{ fontSize: '2rem', fontWeight: 'bold', color: '#1f2937' }}>
+          <div style={{ 
+            background: 'linear-gradient(135deg, #fa709a 0%, #fee140 100%)',
+            color: 'white',
+            padding: '2rem', 
+            borderRadius: '1rem', 
+            boxShadow: '0 8px 25px rgba(250, 112, 154, 0.3)',
+            position: 'relative',
+            overflow: 'hidden'
+          }}>
+            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>⭐</div>
+            <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>NOTE MOYENNE</h3>
+            <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
               {approvedReviews.length > 0 
                 ? (approvedReviews.reduce((sum, r) => sum + r.rating, 0) / approvedReviews.length).toFixed(1)
                 : '0'
               }
             </p>
+            <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
+              {approvedReviews.length === 0 ? 'Premières étoiles' : 'Sur 5 étoiles'}
+            </p>
           </div>
         </div>
 
         {/* Actions rapides */}
-        <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)', marginBottom: '2rem' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>Actions rapides</h2>
-          <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
+        <div style={{ 
+          background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+          padding: '2rem', 
+          borderRadius: '1rem', 
+          boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)', 
+          marginBottom: '2rem',
+          color: 'white'
+        }}>
+          <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', textAlign: 'center' }}>
+            🚀 Gestion de votre page AvisPro
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             <Link 
-              href={`/${profile.username}`}
+              href={`/${displayProfile.username}`}
               style={{
-                backgroundColor: '#4f46e5',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
                 color: 'white',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '0.5rem',
+                padding: '1rem',
+                borderRadius: '0.75rem',
                 textDecoration: 'none',
-                fontWeight: '600'
+                fontWeight: '600',
+                textAlign: 'center',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
+                transition: 'all 0.3s ease'
               }}
             >
-              🌐 Voir ma page publique
+              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>🌐</div>
+              <div>Voir ma page publique</div>
+              <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '0.25rem' }}>
+                {displayProfile.username}.avispro.com
+              </div>
             </Link>
             <button 
               onClick={() => setShowCustomizeModal(true)}
               style={{
-                backgroundColor: '#10b981',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
                 color: 'white',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '0.5rem',
-                border: 'none',
+                padding: '1rem',
+                borderRadius: '0.75rem',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 cursor: 'pointer',
-                fontWeight: '600'
+                fontWeight: '600',
+                textAlign: 'center'
               }}
             >
-              ✏️ Personnaliser ma page
+              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>✏️</div>
+              <div>Personnaliser</div>
+              <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '0.25rem' }}>
+                Modifier les infos
+              </div>
             </button>
             <button 
               onClick={() => setShowShareModal(true)}
               style={{
-                backgroundColor: '#f59e0b',
+                background: 'rgba(255, 255, 255, 0.2)',
+                backdropFilter: 'blur(10px)',
                 color: 'white',
-                padding: '0.75rem 1.5rem',
-                borderRadius: '0.5rem',
-                border: 'none',
+                padding: '1rem',
+                borderRadius: '0.75rem',
+                border: '1px solid rgba(255, 255, 255, 0.3)',
                 cursor: 'pointer',
-                fontWeight: '600'
+                fontWeight: '600',
+                textAlign: 'center'
               }}
             >
-              📤 Partager mon lien
+              <div style={{ fontSize: '2rem', marginBottom: '0.5rem' }}>📤</div>
+              <div>Partager le lien</div>
+              <div style={{ fontSize: '0.75rem', opacity: 0.8, marginTop: '0.25rem' }}>
+                SMS, Email...
+              </div>
             </button>
           </div>
         </div>
@@ -257,20 +352,100 @@ export default function DashboardPage() {
           </div>
         )}
 
+        {/* Guide pour commencer */}
+        {userReviews.length === 0 && (
+          <div style={{
+            background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+            color: 'white',
+            padding: '2rem',
+            borderRadius: '1rem',
+            marginBottom: '2rem',
+            boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)'
+          }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', textAlign: 'center' }}>
+              🎯 Comment commencer à recevoir des avis
+            </h2>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>1️⃣</div>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                  Personnalisez votre page
+                </h3>
+                <p style={{ opacity: 0.9, fontSize: '0.875rem' }}>
+                  Ajoutez le nom de votre entreprise et une description
+                </p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>2️⃣</div>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                  Partagez votre lien
+                </h3>
+                <p style={{ opacity: 0.9, fontSize: '0.875rem' }}>
+                  Envoyez le lien à vos clients par SMS ou email
+                </p>
+              </div>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>3️⃣</div>
+                <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                  Gérez vos avis
+                </h3>
+                <p style={{ opacity: 0.9, fontSize: '0.875rem' }}>
+                  Approuvez les avis depuis ce dashboard
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Tous les avis */}
-        <div style={{ backgroundColor: 'white', padding: '1.5rem', borderRadius: '0.75rem', boxShadow: '0 1px 3px rgba(0,0,0,0.1)' }}>
-          <h2 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '1rem' }}>
-            Tous les avis ({userReviews.length})
-          </h2>
+        <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '1rem', boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}>
+          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
+            <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937' }}>
+              📝 Tous les avis ({userReviews.length})
+            </h2>
+            {userReviews.length > 0 && (
+              <div style={{ 
+                backgroundColor: '#f0f9ff', 
+                color: '#0369a1', 
+                padding: '0.5rem 1rem', 
+                borderRadius: '0.5rem',
+                fontSize: '0.875rem',
+                fontWeight: '600'
+              }}>
+                {approvedReviews.length} publics
+              </div>
+            )}
+          </div>
           
           {reviewsLoading ? (
-            <p>Chargement des avis...</p>
+            <div style={{ textAlign: 'center', padding: '2rem' }}>
+              <div style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>⏳</div>
+              <p>Chargement des avis...</p>
+            </div>
           ) : userReviews.length === 0 ? (
-            <div style={{ textAlign: 'center', padding: '2rem', color: '#6b7280' }}>
-              <p>Aucun avis pour le moment.</p>
-              <p style={{ fontSize: '0.875rem', marginTop: '0.5rem' }}>
-                Partagez votre lien pour commencer à recevoir des avis !
+            <div style={{ textAlign: 'center', padding: '3rem', color: '#6b7280' }}>
+              <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🌟</div>
+              <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#374151' }}>
+                Prêt à recevoir vos premiers avis !
+              </h3>
+              <p style={{ fontSize: '1rem', marginBottom: '1.5rem' }}>
+                Votre page est configurée. Partagez votre lien pour commencer à collecter des avis.
               </p>
+              <button 
+                onClick={() => setShowShareModal(true)}
+                style={{
+                  backgroundColor: '#4f46e5',
+                  color: 'white',
+                  padding: '1rem 2rem',
+                  borderRadius: '0.75rem',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontWeight: '600',
+                  fontSize: '1rem'
+                }}
+              >
+                📤 Partager mon lien maintenant
+              </button>
             </div>
           ) : (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
@@ -311,9 +486,42 @@ export default function DashboardPage() {
           )}
         </div>
 
+        {/* Message si pas de profil configuré */}
+        {!profile && (
+          <div style={{
+            backgroundColor: '#fef3c7',
+            border: '1px solid #f59e0b',
+            padding: '1rem',
+            borderRadius: '0.5rem',
+            marginBottom: '2rem',
+            textAlign: 'center'
+          }}>
+            <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', color: '#92400e', marginBottom: '0.5rem' }}>
+              🚀 Finalisez votre configuration
+            </h3>
+            <p style={{ color: '#92400e', marginBottom: '1rem' }}>
+              Personnalisez votre profil pour activer toutes les fonctionnalités
+            </p>
+            <button 
+              onClick={() => setShowCustomizeModal(true)}
+              style={{
+                backgroundColor: '#f59e0b',
+                color: 'white',
+                padding: '0.5rem 1rem',
+                borderRadius: '0.5rem',
+                border: 'none',
+                cursor: 'pointer',
+                fontWeight: '600'
+              }}
+            >
+              Configurer maintenant
+            </button>
+          </div>
+        )}
+
         {/* Modals */}
         <ShareModal 
-          profile={profile}
+          profile={displayProfile}
           isOpen={showShareModal}
           onClose={() => setShowShareModal(false)}
         />
