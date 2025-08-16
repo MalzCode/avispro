@@ -8,17 +8,44 @@ export default function CustomizeModal({ isOpen, onClose }) {
   const [formData, setFormData] = useState({
     business_name: '',
     description: '',
-    phone: ''
+    phone: '',
+    email: '',
+    website: '',
+    logo_image: '',
+    banner_image: ''
   });
   const [saving, setSaving] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  const handleImageUpload = (type) => (e) => {
+    const file = e.target.files[0];
+    if (!file) return;
+    
+    if (file.size > 5 * 1024 * 1024) {
+      alert('L&apos;image est trop voluminose (max 5MB)');
+      return;
+    }
+    
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setFormData(prev => ({
+        ...prev,
+        [type]: event.target.result
+      }));
+    };
+    reader.readAsDataURL(file);
+  };
 
   useEffect(() => {
     if (profile) {
       setFormData({
         business_name: profile.business_name || '',
         description: profile.description || '',
-        phone: profile.phone || ''
+        phone: profile.phone || '',
+        email: profile.email || '',
+        website: profile.website || '',
+        logo_image: profile.logo_image || '',
+        banner_image: profile.banner_image || ''
       });
     }
   }, [profile]);
@@ -167,6 +194,137 @@ export default function CustomizeModal({ isOpen, onClose }) {
                 boxSizing: 'border-box'
               }}
             />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+              Email
+            </label>
+            <input 
+              type="email" 
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
+              placeholder="contact@monentreprise.com"
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                border: '1px solid #d1d5db',
+                borderRadius: '0.5rem',
+                fontSize: '1rem',
+                outline: 'none',
+                boxSizing: 'border-box'
+              }}
+            />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
+              Site web
+            </label>
+            <input 
+              type="url" 
+              value={formData.website}
+              onChange={(e) => setFormData({...formData, website: e.target.value})}
+              placeholder="https://www.monentreprise.com"
+              style={{
+                width: '100%',
+                padding: '0.75rem',
+                border: '1px solid #d1d5db',
+                borderRadius: '0.5rem',
+                fontSize: '1rem',
+                outline: 'none',
+                boxSizing: 'border-box'
+              }}
+            />
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.5rem' }}>
+              Logo de l'entreprise
+            </label>
+            <div style={{
+              border: '2px dashed #d1d5db',
+              borderRadius: '0.75rem',
+              padding: '1.5rem',
+              textAlign: 'center',
+              backgroundColor: '#f8fafc',
+              cursor: 'pointer'
+            }}
+            onClick={() => document.getElementById('logo-upload').click()}
+            >
+              {formData.logo_image ? (
+                <div style={{
+                  width: '80px',
+                  height: '80px',
+                  borderRadius: '50%',
+                  backgroundImage: `url(${formData.logo_image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  margin: '0 auto',
+                  border: '2px solid #e5e7eb'
+                }} />
+              ) : (
+                <>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ margin: '0 auto 0.5rem auto', color: '#9ca3af' }}>
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" strokeWidth="2"/>
+                    <polyline points="21,15 16,10 5,21" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>Cliquez pour ajouter un logo</p>
+                </>
+              )}
+              <input 
+                type="file"
+                accept="image/*"
+                style={{ display: 'none' }}
+                id="logo-upload"
+                onChange={handleImageUpload('logo_image')}
+              />
+            </div>
+          </div>
+
+          <div>
+            <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.5rem' }}>
+              Image de bannière
+            </label>
+            <div style={{
+              border: '2px dashed #d1d5db',
+              borderRadius: '0.75rem',
+              padding: '1.5rem',
+              textAlign: 'center',
+              backgroundColor: '#f8fafc',
+              cursor: 'pointer'
+            }}
+            onClick={() => document.getElementById('banner-upload').click()}
+            >
+              {formData.banner_image ? (
+                <div style={{
+                  width: '100%',
+                  height: '80px',
+                  borderRadius: '0.5rem',
+                  backgroundImage: `url(${formData.banner_image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  border: '2px solid #e5e7eb'
+                }} />
+              ) : (
+                <>
+                  <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ margin: '0 auto 0.5rem auto', color: '#9ca3af' }}>
+                    <rect x="3" y="3" width="18" height="18" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
+                    <circle cx="8.5" cy="8.5" r="1.5" stroke="currentColor" strokeWidth="2"/>
+                    <polyline points="21,15 16,10 5,21" stroke="currentColor" strokeWidth="2"/>
+                  </svg>
+                  <p style={{ color: '#6b7280', fontSize: '0.875rem' }}>Cliquez pour ajouter une bannière</p>
+                </>
+              )}
+              <input 
+                type="file"
+                accept="image/*"
+                style={{ display: 'none' }}
+                id="banner-upload"
+                onChange={handleImageUpload('banner_image')}
+              />
+            </div>
           </div>
 
           <div style={{

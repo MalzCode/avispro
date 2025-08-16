@@ -88,7 +88,10 @@ export default function DashboardPage() {
           boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
           textAlign: 'center'
         }}>
-          <div style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>⏳</div>
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ margin: '0 auto 1rem auto', color: '#6b7280' }}>
+            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+            <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
+          </svg>
           <div>Chargement de votre dashboard...</div>
         </div>
       </div>
@@ -153,7 +156,14 @@ export default function DashboardPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>📊</div>
+            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.2 }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 3v18h18"/>
+                <path d="M18 17V9"/>
+                <path d="M13 17V5"/>
+                <path d="M8 17V13"/>
+              </svg>
+            </div>
             <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>TOTAL AVIS</h3>
             <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{userReviews.length}</p>
             <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
@@ -170,7 +180,12 @@ export default function DashboardPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>⏳</div>
+            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.2 }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="12" r="10"/>
+                <polyline points="12,6 12,12 16,14"/>
+              </svg>
+            </div>
             <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>EN ATTENTE</h3>
             <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{pendingReviews.length}</p>
             <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
@@ -187,7 +202,12 @@ export default function DashboardPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>✅</div>
+            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.2 }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                <polyline points="22,4 12,14.01 9,11.01"/>
+              </svg>
+            </div>
             <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>APPROUVÉS</h3>
             <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>{approvedReviews.length}</p>
             <p style={{ fontSize: '0.875rem', opacity: 0.8 }}>
@@ -204,7 +224,11 @@ export default function DashboardPage() {
             position: 'relative',
             overflow: 'hidden'
           }}>
-            <div style={{ position: 'absolute', top: '-1rem', right: '-1rem', fontSize: '4rem', opacity: 0.2 }}>⭐</div>
+            <div style={{ position: 'absolute', top: '1rem', right: '1rem', opacity: 0.2 }}>
+              <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+              </svg>
+            </div>
             <h3 style={{ fontSize: '0.875rem', fontWeight: '600', opacity: 0.9, marginBottom: '0.5rem', letterSpacing: '0.05em' }}>NOTE MOYENNE</h3>
             <p style={{ fontSize: '3rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
               {approvedReviews.length > 0 
@@ -228,7 +252,7 @@ export default function DashboardPage() {
           color: 'white'
         }}>
           <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', textAlign: 'center' }}>
-            🚀 Gestion de votre page AvisPro
+            Gestion de votre page AvisPro
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
             <Link 
@@ -325,7 +349,13 @@ export default function DashboardPage() {
                     <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                         <span style={{ fontWeight: '600' }}>{review.customer_name}</span>
-                        <span style={{ color: '#fbbf24' }}>{'⭐'.repeat(review.rating)}</span>
+                        <div style={{ display: 'flex', gap: '0.25rem' }}>
+                          {[...Array(5)].map((_, i) => (
+                            <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill={i < review.rating ? '#fbbf24' : '#e5e7eb'} xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                          ))}
+                        </div>
                       </div>
                       <p style={{ color: '#374151', marginBottom: '0.5rem' }}>&quot;{review.comment}&quot;</p>
                       <p style={{ fontSize: '0.875rem', color: '#6b7280' }}>
@@ -380,7 +410,7 @@ export default function DashboardPage() {
             boxShadow: '0 8px 25px rgba(102, 126, 234, 0.3)'
           }}>
             <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', marginBottom: '1.5rem', textAlign: 'center' }}>
-              🎯 Comment commencer à recevoir des avis
+              Comment commencer à recevoir des avis
             </h2>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
               <div style={{ textAlign: 'center' }}>
@@ -460,9 +490,17 @@ export default function DashboardPage() {
         {/* Tous les avis */}
         <div style={{ backgroundColor: 'white', padding: '2rem', borderRadius: '1rem', boxShadow: '0 8px 25px rgba(0,0,0,0.1)' }}>
           <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '1.5rem' }}>
-            <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937' }}>
-              📝 Tous les avis ({userReviews.length})
-            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" stroke="#1f2937" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <polyline points="14,2 14,8 20,8" stroke="#1f2937" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <line x1="16" y1="13" x2="8" y2="13" stroke="#1f2937" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <line x1="16" y1="17" x2="8" y2="17" stroke="#1f2937" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <h2 style={{ fontSize: '1.5rem', fontWeight: 'bold', color: '#1f2937' }}>
+                Tous les avis ({userReviews.length})
+              </h2>
+            </div>
             {userReviews.length > 0 && (
               <div style={{ 
                 backgroundColor: '#f0f9ff', 
@@ -479,12 +517,17 @@ export default function DashboardPage() {
           
           {reviewsLoading ? (
             <div style={{ textAlign: 'center', padding: '2rem' }}>
-              <div style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>⏳</div>
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ margin: '0 auto 1rem auto', color: '#6b7280' }}>
+                <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2"/>
+                <polyline points="12,6 12,12 16,14" stroke="currentColor" strokeWidth="2"/>
+              </svg>
               <p>Chargement des avis...</p>
             </div>
           ) : userReviews.length === 0 ? (
             <div style={{ textAlign: 'center', padding: '3rem', color: '#6b7280' }}>
-              <div style={{ fontSize: '4rem', marginBottom: '1rem' }}>🌟</div>
+              <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style={{ margin: '0 auto 1rem auto', color: '#d1d5db' }}>
+                <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
               <h3 style={{ fontSize: '1.25rem', fontWeight: 'bold', marginBottom: '0.5rem', color: '#374151' }}>
                 Prêt à recevoir vos premiers avis !
               </h3>
@@ -504,7 +547,7 @@ export default function DashboardPage() {
                   fontSize: '1rem'
                 }}
               >
-                📤 Partager mon lien maintenant
+                Partager mon lien maintenant
               </button>
             </div>
           ) : (
@@ -523,7 +566,13 @@ export default function DashboardPage() {
                     <div style={{ flex: 1 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
                         <span style={{ fontWeight: '600' }}>{review.customer_name}</span>
-                        <span style={{ color: '#fbbf24' }}>{'⭐'.repeat(review.rating)}</span>
+                        <div style={{ display: 'flex', gap: '0.25rem' }}>
+                          {[...Array(5)].map((_, i) => (
+                            <svg key={i} width="16" height="16" viewBox="0 0 24 24" fill={i < review.rating ? '#fbbf24' : '#e5e7eb'} xmlns="http://www.w3.org/2000/svg">
+                              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                            </svg>
+                          ))}
+                        </div>
                         <span style={{ 
                           fontSize: '0.75rem', 
                           padding: '0.25rem 0.5rem', 
@@ -556,9 +605,17 @@ export default function DashboardPage() {
             marginBottom: '2rem',
             textAlign: 'center'
           }}>
-            <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', color: '#92400e', marginBottom: '0.5rem' }}>
-              🚀 Finalisez votre configuration
-            </h3>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.5rem', marginBottom: '0.5rem' }}>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="#92400e" xmlns="http://www.w3.org/2000/svg">
+                <path d="M4.5 16.5c-1.5 1.5-1.5 4 0 5.5s4 1.5 5.5 0L12 20l2 2c1.5 1.5 4 1.5 5.5 0s1.5-4 0-5.5L17 14l-5-5-5 5-2.5 2.5z"/>
+                <path d="M13.5 8.5L21 1"/>
+                <path d="M21 1l-2 2"/>
+                <path d="M21 1l-4 4"/>
+              </svg>
+              <h3 style={{ fontSize: '1.125rem', fontWeight: 'bold', color: '#92400e' }}>
+                Finalisez votre configuration
+              </h3>
+            </div>
             <p style={{ color: '#92400e', marginBottom: '1rem' }}>
               Personnalisez votre profil pour activer toutes les fonctionnalités
             </p>
