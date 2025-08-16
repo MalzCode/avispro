@@ -240,7 +240,7 @@ export default function CustomizeModal({ isOpen, onClose }) {
 
           <div>
             <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.5rem' }}>
-              Logo de l'entreprise
+              Logo de l&apos;entreprise
             </label>
             <div style={{
               border: '2px dashed #d1d5db',

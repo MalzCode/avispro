@@ -370,8 +370,7 @@ export default function PublicProfilePage() {
             </div>
             
             <div style={{ padding: '2rem' }}>
-            
-            <form onSubmit={handleReviewSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+              <form onSubmit={handleReviewSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
               <div>
                 <label style={{ display: 'block', fontSize: '0.875rem', fontWeight: '500', color: '#374151', marginBottom: '0.25rem' }}>
                   Votre nom *
@@ -606,7 +605,8 @@ export default function PublicProfilePage() {
                   Annuler
                 </button>
               </div>
-            </form>
+              </form>
+            </div>
           </div>
         )}
 
