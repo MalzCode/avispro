@@ -88,9 +88,45 @@ export const AuthProvider = ({ children }) => {
           if (session?.user) {
             try {
               const { data: profileData, error: profileError } = await profiles.getById(session.user.id);
-              if (profileError) {
-                console.warn('Profile error in auth change:', profileError);
-                setProfile(null);
+              if (profileError || !profileData) {
+                console.warn('Profile not found, creating basic profile for auth change');
+                // Créer un profil de base automatiquement
+                const username = session.user.email?.split('@')[0]?.toLowerCase().replace(/[^a-z0-9]/g, '') || 'user';
+                let uniqueUsername = username;
+                let counter = 1;
+                
+                // Générer un username unique
+                while (true) {
+                  const { data: existingProfile, error: checkError } = await profiles.getByUsername(uniqueUsername);
+                  if (!existingProfile) break;
+                  uniqueUsername = `${username}${counter}`;
+                  counter++;
+                  if (counter > 100) break;
+                }
+                
+                const basicProfile = {
+                  id: session.user.id,
+                  user_id: session.user.id,
+                  username: uniqueUsername,
+                  business_name: session.user.email?.split('@')[0] || 'Mon Entreprise',
+                  email: session.user.email,
+                  phone: null,
+                  description: null
+                };
+                
+                try {
+                  const { data: newProfile, error: createError } = await profiles.create(basicProfile);
+                  if (!createError && newProfile && newProfile[0]) {
+                    console.log('Basic profile created in auth change:', newProfile[0]);
+                    setProfile(newProfile[0]);
+                  } else {
+                    console.warn('Failed to create basic profile in auth change:', createError);
+                    setProfile(null);
+                  }
+                } catch (createErr) {
+                  console.warn('Error creating basic profile in auth change:', createErr);
+                  setProfile(null);
+                }
               } else {
                 setProfile(profileData);
               }
@@ -102,6 +138,7 @@ export const AuthProvider = ({ children }) => {
             setProfile(null);
           }
           
+          console.log('Auth state change complete, setting loading to false');
           setLoading(false);
         }
       );

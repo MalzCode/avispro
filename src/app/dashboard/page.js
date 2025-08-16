@@ -18,6 +18,11 @@ export default function DashboardPage() {
   const [showProfileEditor, setShowProfileEditor] = useState(false);
   const router = useRouter();
 
+  // Debug pour comprendre le problème
+  useEffect(() => {
+    console.log('Dashboard render - User:', !!user, 'Profile:', !!profile, 'Loading:', loading);
+  }, [user, profile, loading]);
+
   // Rediriger si pas connecté
   useEffect(() => {
     if (!loading && !user) {
