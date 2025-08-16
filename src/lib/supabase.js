@@ -4,15 +4,19 @@ const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
 const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
 
 if (!supabaseUrl || !supabaseKey) {
-  throw new Error('Missing Supabase environment variables')
+  console.warn('Missing Supabase environment variables')
+  // Fallback pour éviter les erreurs de build
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+export const supabase = supabaseUrl && supabaseKey 
+  ? createClient(supabaseUrl, supabaseKey)
+  : null
 
 // Helper functions pour l'authentification
 export const auth = {
   // Inscription
   signUp: async (email, password, userData) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase.auth.signUp({
       email,
       password,
@@ -25,6 +29,7 @@ export const auth = {
 
   // Connexion
   signIn: async (email, password) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase.auth.signInWithPassword({
       email,
       password
@@ -34,12 +39,14 @@ export const auth = {
 
   // Déconnexion
   signOut: async () => {
+    if (!supabase) return { error: { message: 'Supabase not configured' } }
     const { error } = await supabase.auth.signOut()
     return { error }
   },
 
   // Obtenir l'utilisateur actuel
   getUser: async () => {
+    if (!supabase) return { user: null, error: { message: 'Supabase not configured' } }
     const { data: { user }, error } = await supabase.auth.getUser()
     return { user, error }
   }
@@ -49,6 +56,7 @@ export const auth = {
 export const profiles = {
   // Créer un profil
   create: async (profileData) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('profiles')
       .insert([profileData])
@@ -58,6 +66,7 @@ export const profiles = {
 
   // Obtenir un profil par username
   getByUsername: async (username) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('profiles')
       .select('*')
@@ -68,6 +77,7 @@ export const profiles = {
 
   // Obtenir un profil par ID
   getById: async (id) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('profiles')
       .select('*')
@@ -78,6 +88,7 @@ export const profiles = {
 
   // Mettre à jour un profil
   update: async (id, updates) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('profiles')
       .update(updates)
@@ -91,6 +102,7 @@ export const profiles = {
 export const reviews = {
   // Créer un avis
   create: async (reviewData) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('reviews')
       .insert([reviewData])
@@ -100,6 +112,7 @@ export const reviews = {
 
   // Obtenir les avis d'un profil (approuvés seulement)
   getByProfile: async (profileId, approved = true) => {
+    if (!supabase) return { data: [], error: { message: 'Supabase not configured' } }
     let query = supabase
       .from('reviews')
       .select('*')
@@ -116,6 +129,7 @@ export const reviews = {
 
   // Obtenir tous les avis d'un utilisateur (pour le dashboard)
   getAllByProfile: async (profileId) => {
+    if (!supabase) return { data: [], error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('reviews')
       .select('*')
@@ -126,6 +140,7 @@ export const reviews = {
 
   // Mettre à jour le statut d'un avis
   updateStatus: async (reviewId, status) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('reviews')
       .update({ status })
@@ -136,6 +151,7 @@ export const reviews = {
 
   // Supprimer un avis
   delete: async (reviewId) => {
+    if (!supabase) return { data: null, error: { message: 'Supabase not configured' } }
     const { data, error } = await supabase
       .from('reviews')
       .delete()
