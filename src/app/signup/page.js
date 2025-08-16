@@ -48,20 +48,27 @@ export default function SignUpPage() {
     // Nettoyer le username (enlever espaces, caractères spéciaux)
     const cleanUsername = formData.username.toLowerCase().replace(/[^a-z0-9-]/g, '');
     
-    const { data, error } = await signUp(formData.email, formData.password, {
-      username: cleanUsername,
-      business_name: formData.business_name,
-      phone: formData.phone
-    });
+    try {
+      const { data, error } = await signUp(formData.email, formData.password, {
+        username: cleanUsername,
+        business_name: formData.business_name,
+        phone: formData.phone
+      });
 
-    if (error) {
-      setError(error.message);
-    } else {
-      setSuccess(true);
-      // Rediriger vers le dashboard après 2 secondes
-      setTimeout(() => {
-        router.push('/dashboard');
-      }, 2000);
+      if (error) {
+        console.error('Signup error:', error);
+        setError(error.message || 'Erreur lors de la création du compte');
+      } else {
+        console.log('Signup successful:', data);
+        setSuccess(true);
+        // Rediriger vers le dashboard après 2 secondes
+        setTimeout(() => {
+          router.push('/dashboard');
+        }, 2000);
+      }
+    } catch (err) {
+      console.error('Unexpected signup error:', err);
+      setError('Erreur inattendue lors de la création du compte');
     }
 
     setLoading(false);

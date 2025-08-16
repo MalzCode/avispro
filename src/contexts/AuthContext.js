@@ -123,21 +123,49 @@ export const AuthProvider = ({ children }) => {
       if (error) throw error;
       
       if (data.user) {
-        // Créer le profil utilisateur
+        // Générer un username unique si celui proposé existe déjà
+        let uniqueUsername = userData.username;
+        let counter = 1;
+        
+        // Vérifier si le username existe déjà
+        while (true) {
+          const { data: existingProfile } = await profiles.getByUsername(uniqueUsername);
+          if (!existingProfile) break; // Username disponible
+          
+          uniqueUsername = `${userData.username}${counter}`;
+          counter++;
+          
+          if (counter > 100) {
+            throw new Error('Impossible de générer un nom d\'utilisateur unique');
+          }
+        }
+        
+        // Créer le profil utilisateur avec le username unique
         const profileData = {
           id: data.user.id,
-          username: userData.username,
+          user_id: data.user.id, // Ajouter user_id pour compatibilité
+          username: uniqueUsername,
           business_name: userData.business_name,
           phone: userData.phone || null,
-          description: userData.description || null
+          description: userData.description || null,
+          email: email, // Ajouter l'email du profil
+          is_active: true
         };
         
-        const { error: profileError } = await profiles.create(profileData);
-        if (profileError) throw profileError;
+        console.log('Creating profile with data:', profileData);
+        const { data: newProfile, error: profileError } = await profiles.create(profileData);
+        
+        if (profileError) {
+          console.error('Profile creation error:', profileError);
+          throw new Error(`Erreur lors de la création du profil: ${profileError.message}`);
+        }
+        
+        console.log('Profile created successfully:', newProfile);
       }
       
       return { data, error: null };
     } catch (error) {
+      console.error('SignUp error:', error);
       return { data: null, error };
     }
   };
