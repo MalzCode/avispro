@@ -91,6 +91,7 @@ export default function PublicProfilePage() {
         customer_email: reviewForm.customer_email,
         rating: reviewForm.rating,
         comment: reviewForm.comment,
+        images: reviewForm.images,
         status: 'pending'
       };
 
